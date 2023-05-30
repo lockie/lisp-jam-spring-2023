@@ -42,7 +42,9 @@ like a prefab."
 (define-constant +tint-color+ (al:map-rgba 255 255 255 255) :test #'equalp)
 
 (ecs:defsystem render-animation
-  (:components-ro (position size sprite-sheet animation-state))
+  (:components-ro (position size sprite-sheet animation-state)
+   :pre (al:hold-bitmap-drawing t)
+   :post (al:hold-bitmap-drawing nil))
   (al:draw-tinted-scaled-rotated-bitmap-region
    sprite-sheet-bitmap
    (+ animation-state-x

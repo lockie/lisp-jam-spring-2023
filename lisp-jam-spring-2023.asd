@@ -3,15 +3,15 @@
   :author "Andrew Kravchuk"
   :license "MIT"
   :depends-on (#:alexandria
-               
                #:cl-liballegro
                #:cl-liballegro-nuklear
-               
+               #:cl-fast-ecs
                #:livesupport)
   :serial t
   :components ((:module "src"
                 :components
                 ((:file "package")
+                 (:file "sprites")
                  (:file "main"))))
   :description "A Spring Lisp Game Jam 2023 entry."
   :defsystem-depends-on (#:deploy)

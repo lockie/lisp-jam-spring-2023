@@ -1,16 +1,19 @@
 (in-package #:lisp-jam-spring-2023)
 
-(define-constant +window-width+ 800)
-(define-constant +window-height+ 600)
+(define-constant +window-width+ 1280)
+(define-constant +window-height+ 720)
 
-(define-constant +repl-update-interval+ 0.3d0)
+(define-constant +repl-update-interval+ 0.1d0)
 
-(define-constant +font-path+ "../Resources/inconsolata.ttf"
+(define-constant +font-path+ "../Resources/fonts/inconsolata.ttf"
   :test #'string=)
 (define-constant +font-size+ 24)
 
 (define-constant +config-path+ "../config.cfg"
   :test #'string=)
+
+(declaim (type ecs::storage *storage*))
+(defvar *storage*)
 
 (declaim (type fixnum *fps*))
 (defvar *fps* 0)
@@ -18,14 +21,11 @@
 (defun update (dt)
   (unless (zerop dt)
     (setf *fps* (round 1 dt)))
-
-  ;; TODO : put your game logic here
-  )
+  (ecs:run-systems *storage* :dt dt))
 
 (defvar *font*)
 
 (defun render ()
-
   (al:draw-text *font* (al:map-rgba 255 255 255 0) 0 0 0
                 (format nil "~d FPS" *fps*))
 
@@ -76,7 +76,24 @@
                                 (al:get-mouse-event-source))
       (unwind-protect
            (cffi:with-foreign-object (event '(:union al:event))
+             (setf *storage* (ecs:make-storage))
+             (load-sprites)
+             (let ((player (ecs:make-object
+                            *storage*
+                            `((:animation-state :sprite :player)
+                              (:sprite-sheet)
+                              (:size)
+                              (:position :x 100.0 :y 100.0))))
+                   (orc (ecs:make-object
+                         *storage*
+                         `((:animation-state :sprite :orc :left t)
+                           (:sprite-sheet)
+                           (:size)
+                           (:position :x 300.0 :y 68.0)))))
+               (change-animation *storage* player :idle)
+               (change-animation *storage* orc :move))
              (livesupport:setup-lisp-repl)
+             (trivial-garbage:gc :full t)
              (loop :named event-loop
                    :with *font* := (al:load-ttf-font +font-path+
                                                      (- +font-size+) 0)

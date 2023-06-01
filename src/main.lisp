@@ -17,17 +17,21 @@
 
 (declaim (type fixnum *fps*))
 (defvar *fps* 0)
+(defvar *fpsp*)
 
 (defun update (dt)
-  (unless (zerop dt)
-    (setf *fps* (round 1 dt)))
+  (when *fpsp*
+    (unless (zerop dt)
+      (setf *fps* (round 1 dt))))
   (ecs:run-systems *storage* :dt dt))
 
 (defvar *font*)
 
 (defun render ()
-  (al:draw-text *font* (al:map-rgba 255 255 255 0) 0 0 0
-                (format nil "~d FPS" *fps*))
+  (when *fpsp*
+    (al:draw-text *font* (al:map-rgba 255 255 255 0) 0 0 0
+                  (format nil "~d FPS" *fps*)))
+  
 
   ;; TODO : put your drawing code here
   )
@@ -46,6 +50,8 @@
     (let ((config (al:load-config-file +config-path+)))
       (unless (cffi:null-pointer-p config)
         (al:merge-config-into (al:get-system-config) config)))
+    (setf *fpsp* (al:get-config-value (al:get-system-config)
+                                      "game" "show-fps"))
     (unless (al:init)
       (error "Initializing liballegro failed"))
     (unless (al:init-image-addon)

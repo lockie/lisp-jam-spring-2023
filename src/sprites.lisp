@@ -11,6 +11,9 @@
 (ecs:defcomponent sprite-sheet
   (bitmap (cffi:null-pointer) :type cffi:foreign-pointer))
 
+(defun load-bitmap (filename)
+  (al:ensure-loaded #'al:load-bitmap (namestring filename)))
+
 (ecs:defcomponent animation
   "There is a separate entity for every animation of every sprite, having this
 component (and also sprite-sheet and size). This separate entity is very much
@@ -101,7 +104,7 @@ like a prefab."
                   height animation-height)))
         (with-sprite-sheet (animation-bitmap) storage animation-entity
           (with-sprite-sheet () storage entity
-           (setf bitmap animation-bitmap)))))))
+            (setf bitmap animation-bitmap)))))))
 
 (cffi:defcallback load-sprite :int
     ((file (:pointer (:struct al::fs-entry))) (data :pointer))

@@ -78,6 +78,7 @@
            (cffi:with-foreign-object (event '(:union al:event))
              (setf *storage* (ecs:make-storage))
              (load-sprites)
+             (load-map "../Resources/maps/test.tmx")
              (let ((player (ecs:make-object
                             *storage*
                             `((:animation-state :sprite :player)

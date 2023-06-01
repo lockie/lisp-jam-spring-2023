@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.8" tiledversion="1.8.6" orientation="orthogonal" renderorder="right-down" width="40" height="23" tilewidth="16" tileheight="16" infinite="0" nextlayerid="8" nextobjectid="1">
+ <tileset firstgid="1" name="Dungeon tiles" tilewidth="16" tileheight="16" tilecount="625" columns="25">
+  <image source="../images/Environment/Dungeon Prison/Assets/Tiles.png" width="400" height="400"/>
+ </tileset>
+ <tileset firstgid="626" name="Dungeon props" tilewidth="16" tileheight="16" tilecount="625" columns="25">
+  <image source="../images/Environment/Dungeon Prison/Assets/Props.png" width="400" height="400"/>
+ </tileset>
+ <layer id="1" name="floor" width="40" height="23">
+  <data encoding="base64" compression="zlib">
+   eJzt0csJgDAQhOGJ4gNbUNQqfFRh/924B4WASA457Ijzw1xy+tgASvFU2erEGjcdMNqmxGYvHL7hKwJQ2pbA6evNNdgOUh/7/zL7VtsWrbtMbfS2u+me3fecnR1vyZeXfHmx+5T6cyeaXgt1
+  </data>
+ </layer>
+ <layer id="2" name="walls" width="40" height="23">
+  <data encoding="base64" compression="zlib">
+   eJztlUkKwkAUBTN4ikRP0eoRHILRU4h6CadLxOGyVqAXbSf2JuiP8AsK8vibgl4kiv6HPcaYYIqDD7v+Pgj0XTDDHIc4wiOe8Gx3Zm9XoT6DY5zgFCu84d1uY29SfS6bwO5DXwjta6J93dC+bvS974Gl49q7r5zb87dprcz42c5xgUssYumid/z3lnjTEDtvb0UqFEVRvsMLHwMXqA==
+  </data>
+ </layer>
+ <layer id="4" name="doors" width="40" height="23">
+  <data encoding="base64" compression="zlib">
+   eJztwzENACAMALCR4N8PNrCBCc7t3bejTRoBANBzyoluOdErJ9orA3R8b/EHcg==
+  </data>
+ </layer>
+ <layer id="3" name="props" width="40" height="23">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFtASrmFDp1UB6LdPAuacCaHclEFdB3XAHjT4CpI8NoPsmAu2eBMST8bjh7gC6jxjwbdR9FIFR91EGRt1HGeBnHmgXjIJRMApGwSgYBUMbAADb/A/t
+  </data>
+ </layer>
+ <objectgroup id="5" name="objects"/>
+</map>

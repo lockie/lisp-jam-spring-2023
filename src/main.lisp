@@ -1,5 +1,6 @@
 (in-package #:lisp-jam-spring-2023)
 
+
 (define-constant +window-width+ 1280)
 (define-constant +window-height+ 720)
 
@@ -87,18 +88,22 @@
              (load-map "../Resources/maps/test.tmx")
              (let ((player (ecs:make-object
                             *storage*
-                            `((:animation-state :sprite :player)
+                            `((:player)
+                              (:character :speed 75.0
+                                          :target-x 100.0
+                                          :target-y 100.0)
+                              (:animation-state :sprite :player)
                               (:sprite-sheet)
                               (:size)
                               (:position :x 100.0 :y 100.0))))
                    (orc (ecs:make-object
                          *storage*
-                         `((:animation-state :sprite :orc :left t)
+                         `((:animation-state :sprite :orc)
                            (:sprite-sheet)
                            (:size)
                            (:position :x 300.0 :y 68.0)))))
                (change-animation *storage* player :idle)
-               (change-animation *storage* orc :move))
+               (change-animation *storage* orc :move 1))
              (livesupport:setup-lisp-repl)
              (trivial-garbage:gc :full t)
              (loop :named event-loop

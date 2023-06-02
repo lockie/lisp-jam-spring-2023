@@ -5,8 +5,11 @@
 
 (ecs:defcomponent position
   "The object position in pixels."
-  (x 0.0 :type single-float)
-  (y 0.0 :type single-float))
+  (x 0.0 :type single-float
+         :documentation "pre-scaled x position aka screen pixel coordinate")
+  (y 0.0 :type single-float
+         :documentation "pre-scaled y position aka screen pixel coordinate")
+  (idx (+ x y) :type single-float))
 
 (ecs:defcomponent sprite-sheet
   (bitmap (cffi:null-pointer) :type cffi:foreign-pointer))
@@ -40,7 +43,7 @@ like a prefab."
   ;; state
   (frame 0 :type non-negative-fixnum)
   (time 0d0 :type double-float)
-  (left nil :type boolean :documentation "T if sprite should be flipped left"))
+  (left 0 :type bit :documentation "1 if sprite should be flipped left"))
 
 (define-constant +tint-color+ (al:map-rgba 255 255 255 255) :test #'equalp)
 
@@ -63,11 +66,11 @@ like a prefab."
    +scale+
    +scale+
    0.0
-   (if animation-state-left
+   (if (zerop animation-state-left)
+       0
        (cffi:foreign-bitfield-value
         'al::draw-flags
-        '(:flip-horizontal))
-       0)))
+        '(:flip-horizontal)))))
 
 (ecs:defsystem update-animation
   (:components-rw (animation-state)
@@ -83,8 +86,9 @@ like a prefab."
         (setf animation-state-frame
               (rem animation-state-frame animation-state-nframes))))))
 
-(defun change-animation (storage entity animation)
+(defun change-animation (storage entity animation &optional turn-left)
   (with-animation-state () storage entity
+    (setf left (if turn-left 1 0))
     (unless (eq animation current)
       (setf current animation
             frame 0

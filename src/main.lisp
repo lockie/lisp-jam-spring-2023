@@ -90,20 +90,23 @@
                             *storage*
                             `((:player)
                               (:character :speed 75.0
-                                          :target-x 100.0
-                                          :target-y 100.0)
+                                          :target-x 160.0
+                                          :target-y 160.0)
                               (:animation-state :sprite :player)
                               (:sprite-sheet)
                               (:size)
-                              (:position :x 100.0 :y 100.0))))
+                              (:position :x 160.0 :y 160.0))))
                    (orc (ecs:make-object
                          *storage*
-                         `((:animation-state :sprite :orc)
+                         `((:character :speed 50.0
+                                       :target-x 150.0
+                                       :target-y 150.0)
+                           (:animation-state :sprite :orc)
                            (:sprite-sheet)
                            (:size)
-                           (:position :x 300.0 :y 68.0)))))
+                           (:position :x 300.0 :y 300.0)))))
                (change-animation *storage* player :idle)
-               (change-animation *storage* orc :move 1))
+               (change-animation *storage* orc :move))
              (livesupport:setup-lisp-repl)
              (trivial-garbage:gc :full t)
              (loop :named event-loop

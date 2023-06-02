@@ -9,7 +9,8 @@
          :documentation "pre-scaled x position aka screen pixel coordinate")
   (y 0.0 :type single-float
          :documentation "pre-scaled y position aka screen pixel coordinate")
-  (idx (+ x y) :type single-float))
+  (tile-index 0 :type fixnum :index tile
+                :documentation "Tile index, for fast map tile lookups."))
 
 (ecs:defcomponent sprite-sheet
   (bitmap (cffi:null-pointer) :type cffi:foreign-pointer))
@@ -59,8 +60,7 @@ like a prefab."
    size-width
    size-height
    +tint-color+
-   (/ size-width 2)
-   (/ size-height 2)
+   0 0
    position-x
    position-y
    +scale+
@@ -108,7 +108,8 @@ like a prefab."
                   height animation-height)))
         (with-sprite-sheet (animation-bitmap) storage animation-entity
           (with-sprite-sheet () storage entity
-            (setf bitmap animation-bitmap)))))))
+            (setf bitmap animation-bitmap))))))
+  nil)
 
 (cffi:defcallback load-sprite :int
     ((file (:pointer (:struct al::fs-entry))) (data :pointer))

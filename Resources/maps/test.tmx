@@ -2,18 +2,243 @@
 <map version="1.8" tiledversion="1.8.6" orientation="orthogonal" renderorder="right-down" width="40" height="23" tilewidth="16" tileheight="16" infinite="0" nextlayerid="8" nextobjectid="1">
  <tileset firstgid="1" name="Dungeon tiles" tilewidth="16" tileheight="16" tilecount="625" columns="25">
   <image source="../images/Environment/Dungeon Prison/Assets/Tiles.png" width="400" height="400"/>
+  <tile id="0">
+   <properties>
+    <property name="obstacle" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="1">
+   <properties>
+    <property name="obstacle" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="2">
+   <properties>
+    <property name="obstacle" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="3">
+   <properties>
+    <property name="obstacle" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="25">
+   <properties>
+    <property name="obstacle" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="26">
+   <properties>
+    <property name="obstacle" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="27">
+   <properties>
+    <property name="obstacle" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="28">
+   <properties>
+    <property name="obstacle" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="50">
+   <properties>
+    <property name="obstacle" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="51">
+   <properties>
+    <property name="obstacle" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="52">
+   <properties>
+    <property name="obstacle" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="53">
+   <properties>
+    <property name="obstacle" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="75">
+   <properties>
+    <property name="obstacle" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="76">
+   <properties>
+    <property name="obstacle" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="77">
+   <properties>
+    <property name="obstacle" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="100">
+   <properties>
+    <property name="obstacle" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="101">
+   <properties>
+    <property name="obstacle" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="102">
+   <properties>
+    <property name="obstacle" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="103">
+   <properties>
+    <property name="obstacle" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="104">
+   <properties>
+    <property name="obstacle" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="109">
+   <properties>
+    <property name="obstacle" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="125">
+   <properties>
+    <property name="obstacle" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="126">
+   <properties>
+    <property name="obstacle" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="127">
+   <properties>
+    <property name="obstacle" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="128">
+   <properties>
+    <property name="obstacle" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="129">
+   <properties>
+    <property name="obstacle" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="134">
+   <properties>
+    <property name="obstacle" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="150">
+   <properties>
+    <property name="obstacle" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="151">
+   <properties>
+    <property name="obstacle" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="152">
+   <properties>
+    <property name="obstacle" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="153">
+   <properties>
+    <property name="obstacle" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="154">
+   <properties>
+    <property name="obstacle" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="209">
+   <properties>
+    <property name="obstacle" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="234">
+   <properties>
+    <property name="obstacle" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="325">
+   <properties>
+    <property name="obstacle" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="326">
+   <properties>
+    <property name="obstacle" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="327">
+   <properties>
+    <property name="obstacle" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="328">
+   <properties>
+    <property name="obstacle" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="329">
+   <properties>
+    <property name="obstacle" type="bool" value="true"/>
+   </properties>
+  </tile>
  </tileset>
  <tileset firstgid="626" name="Dungeon props" tilewidth="16" tileheight="16" tilecount="625" columns="25">
   <image source="../images/Environment/Dungeon Prison/Assets/Props.png" width="400" height="400"/>
+  <tile id="6">
+   <properties>
+    <property name="obstacle" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="7">
+   <properties>
+    <property name="obstacle" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="8">
+   <properties>
+    <property name="obstacle" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="107">
+   <properties>
+    <property name="obstacle" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="132">
+   <properties>
+    <property name="obstacle" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="157">
+   <properties>
+    <property name="obstacle" type="bool" value="true"/>
+   </properties>
+  </tile>
  </tileset>
  <layer id="1" name="floor" width="40" height="23">
   <data encoding="base64" compression="zlib">
-   eJzt0csJgDAQhOGJ4gNbUNQqfFRh/924B4WASA457Ijzw1xy+tgASvFU2erEGjcdMNqmxGYvHL7hKwJQ2pbA6evNNdgOUh/7/zL7VtsWrbtMbfS2u+me3fecnR1vyZeXfHmx+5T6cyeaXgt1
+   eJztkUsKgDAMBV/rF6+gaE/h5xTe/zYGqVC6KegiT8jAUEoXGVLAMHhoxLZgp1YHzOJSMGjF4R993gGVuDrOvlG6JvEk7WP/X+a+TdwTh9jUx3vtgUMv756fns8+Q/bOQt7HhvV9w/oMw3jLBaZXC1U=
   </data>
  </layer>
  <layer id="2" name="walls" width="40" height="23">
   <data encoding="base64" compression="zlib">
-   eJztlUkKwkAUBTN4ikRP0eoRHILRU4h6CadLxOGyVqAXbSf2JuiP8AsK8vibgl4kiv6HPcaYYIqDD7v+Pgj0XTDDHIc4wiOe8Gx3Zm9XoT6DY5zgFCu84d1uY29SfS6bwO5DXwjta6J93dC+bvS974Gl49q7r5zb87dprcz42c5xgUssYumid/z3lnjTEDtvb0UqFEVRvsMLHwMXqA==
+   eJztlVsOATEUQDtYxWAVgyVgZLCK8diE1yYYNuuISkZVf4RbyT3JSeam/ThJ044x/8MKE2xgE1tv5tv3WqBvjym2sYNd3OAWd3ZO7dpBqC/DHvZxgEc8YWXnzK5J9dWZB+YY+kLE0FfgFGeevTH0lbjApWdvDH0htO8V7fuMs7nf14fuvS1qa5ffpnkZ8rMd4RhznCTSRc+45y1xpiHcd68UqVAURfkOV2duGcE=
   </data>
  </layer>
  <layer id="4" name="doors" width="40" height="23">

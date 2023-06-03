@@ -11,9 +11,9 @@
     :bitmap
     ,(game::load-bitmap
       "../Resources/images/Heroes/Rogue/Run/Run-Sheet_.png")))
-  ((:size :width 32.0 :height 32.0)
-   (:animation :name :player-death :x 0.0 :y 0.0 :nframes 6 :speed 0.5d0)
+  ((:size :width 48.0 :height 32.0)
+   (:animation :name :player-death :x 0.0 :y 0.0 :nframes 6 :speed 0.1d0)
    (:sprite-sheet
     :bitmap
     ,(game::load-bitmap
-      "../Resources/images/Heroes/Rogue/Death/Death-Sheet.png"))))
+      "../Resources/images/Heroes/Rogue/Death/Death-Sheet_.png"))))

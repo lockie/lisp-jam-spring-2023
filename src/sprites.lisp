@@ -44,6 +44,7 @@ like a prefab."
   ;; state
   (frame 0 :type non-negative-fixnum)
   (time 0d0 :type double-float)
+  (repeat 1 :type bit :documentation "1 if the animation is looping")
   (left 0 :type bit :documentation "1 if sprite should be flipped left"))
 
 (define-constant +tint-color+ (al:map-rgba 255 255 255 255) :test #'equalp)
@@ -84,11 +85,14 @@ like a prefab."
       (incf animation-state-frame nframes)
       (when (>= animation-state-frame animation-state-nframes)
         (setf animation-state-frame
-              (rem animation-state-frame animation-state-nframes))))))
+              (if (zerop animation-state-repeat)
+                  (1- animation-state-nframes)
+                  (rem animation-state-frame animation-state-nframes)))))))
 
-(defun change-animation (storage entity animation &optional turn-left)
+(defun change-animation (storage entity animation &key turn-left (cycle t))
   (with-animation-state () storage entity
-    (setf left (if turn-left 1 0))
+    (setf left (if turn-left 1 0)
+          repeat (if cycle 1 0))
     (unless (eq animation current)
       (setf current animation
             frame 0

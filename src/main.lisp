@@ -19,6 +19,9 @@
 (declaim (type ecs::entity *player-entity*))
 (defvar *player-entity*)
 
+(declaim (type boolean *deathp*))
+(defvar *deathp* nil)
+
 (declaim (type fixnum *fps*))
 (defvar *fps* 0)
 (defvar *fpsp*)
@@ -109,10 +112,12 @@
                            (:animation-state :sprite :orc)
                            (:sprite-sheet)
                            (:size)
-                           (:ai :range 20000.0)
+                           (:ai :notice-range 20000.0
+                                :attack-range 1000.0)
                            (:position :x 300.0 :y 300.0)))))
                (change-animation *storage* player :idle)
-               (setf *player-entity* player)
+               (setf *player-entity* player
+                     *deathp* nil)
                (change-animation *storage* orc :move))
              (livesupport:setup-lisp-repl)
              (trivial-garbage:gc :full t)

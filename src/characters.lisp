@@ -20,17 +20,18 @@
 (ecs:defsystem player-control
   (:components-ro (player position)
    :components-rw (character))
-  (al:with-current-keyboard-state keyboard-state
-    (multiple-value-bind (current-tile-x current-tile-y)
-        (tile-start position-x position-y)
-      (when (al:key-down keyboard-state :W)
-        (setf character-target-y (- current-tile-y +scaled-tile-size+)))
-      (when (al:key-down keyboard-state :A)
-        (setf character-target-x (- current-tile-x +scaled-tile-size+)))
-      (when (al:key-down keyboard-state :S)
-        (setf character-target-y (+ current-tile-y +scaled-tile-size+)))
-      (when (al:key-down keyboard-state :D)
-        (setf character-target-x (+ current-tile-x +scaled-tile-size+))))))
+  (unless *deathp*
+    (al:with-current-keyboard-state keyboard-state
+      (multiple-value-bind (current-tile-x current-tile-y)
+          (tile-start position-x position-y)
+        (when (al:key-down keyboard-state :W)
+          (setf character-target-y (- current-tile-y +scaled-tile-size+)))
+        (when (al:key-down keyboard-state :A)
+          (setf character-target-x (- current-tile-x +scaled-tile-size+)))
+        (when (al:key-down keyboard-state :S)
+          (setf character-target-y (+ current-tile-y +scaled-tile-size+)))
+        (when (al:key-down keyboard-state :D)
+          (setf character-target-x (+ current-tile-x +scaled-tile-size+)))))))
 
 (declaim (inline approx-equal)
          (ftype (function (single-float single-float &optional single-float)
@@ -56,25 +57,26 @@
 (ecs:defsystem character
   (:components-rw (position character size)
    :arguments ((:dt double-float)))
-  (if (and (approx-equal position-x character-target-x)
-           (approx-equal position-y character-target-y))
-      (change-animation
-       *storage* entity :idle
-       (not (zerop (animation-state-left-aref *storage* entity))))
-      (let* ((angle (atan (- character-target-y position-y)
-                          (- character-target-x position-x)))
-             (dt (coerce dt 'single-float))
-             (dx (* dt character-speed (cos angle)))
-             (dy (* dt character-speed (sin angle)))
-             (new-x (+ position-x dx))
-             (new-y (+ position-y dy)))
-        (if (collidesp new-x new-y (floor size-width +tile-size+))
-            (setf character-target-x position-x
-                  character-target-y position-y)
-            (progn
-              (change-animation *storage* entity :move (minusp dx))
-              (add-sound *storage* entity (if (= *player-entity* entity)
-                                              :step-cloth1
-                                              :step-lth1))
-              (setf position-x new-x
-                    position-y new-y))))))
+  (unless *deathp*
+    (if (and (approx-equal position-x character-target-x)
+             (approx-equal position-y character-target-y))
+        (change-animation
+         *storage* entity :idle
+         :turn-left (plusp (animation-state-left-aref *storage* entity)))
+        (let* ((angle (atan (- character-target-y position-y)
+                            (- character-target-x position-x)))
+               (dt (coerce dt 'single-float))
+               (dx (* dt character-speed (cos angle)))
+               (dy (* dt character-speed (sin angle)))
+               (new-x (+ position-x dx))
+               (new-y (+ position-y dy)))
+          (if (collidesp new-x new-y (floor size-width +tile-size+))
+              (setf character-target-x position-x
+                    character-target-y position-y)
+              (progn
+                (change-animation *storage* entity :move :turn-left (minusp dx))
+                (add-sound *storage* entity (if (= *player-entity* entity)
+                                                :step-cloth1
+                                                :step-lth1))
+                (setf position-x new-x
+                      position-y new-y)))))))

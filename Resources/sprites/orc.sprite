@@ -10,10 +10,4 @@
    (:sprite-sheet
     :bitmap
     ,(game::load-bitmap
-      "../Resources/images/Enemy/Orc Crew/Orc/Run/Run-Sheet_.png")))
-  ((:size :width 64.0 :height 64.0)
-   (:animation :name :orc-death :x 0.0 :y 0.0 :nframes 6 :speed 0.1d0)
-   (:sprite-sheet
-    :bitmap
-    ,(game::load-bitmap
-      "../Resources/images/Enemy/Orc Crew/Orc/Death/Death-Sheet.png"))))
+      "../Resources/images/Enemy/Orc Crew/Orc/Run/Run-Sheet_.png"))))

@@ -114,12 +114,12 @@ like a prefab."
 (cffi:defcallback load-sprite :int
     ((file (:pointer (:struct al::fs-entry))) (data :pointer))
   (declare (ignore data))
-  (with-open-file (stream (al::get-fs-entry-name file))
-    (dolist (animation (eval (read stream)))
-      (ecs:make-object *storage* animation)))
   (if (zerop (logand (al::get-fs-entry-mode file)
                      (cffi:foreign-bitfield-value 'al::file-mode '(:isdir))))
-      (cffi:foreign-enum-value 'al::for-each-fs-entry-result :ok)
+      (with-open-file (stream (al::get-fs-entry-name file))
+        (dolist (animation (eval (read stream)))
+          (ecs:make-object *storage* animation))
+        (cffi:foreign-enum-value 'al::for-each-fs-entry-result :ok))
       (cffi:foreign-enum-value 'al::for-each-fs-entry-result :skip)))
 
 (defun load-sprites ()

@@ -16,6 +16,7 @@
                  (:file "map")
                  (:file "characters")
                  (:file "sounds")
+                 (:file "ai")
                  (:file "main"))))
   :description "A Spring Lisp Game Jam 2023 entry."
   :defsystem-depends-on (#:deploy)

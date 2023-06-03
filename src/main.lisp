@@ -104,11 +104,12 @@
                    (orc (ecs:make-object
                          *storage*
                          `((:character :speed 50.0
-                                       :target-x 150.0
-                                       :target-y 150.0)
+                                       :target-x 300.0
+                                       :target-y 300.0)
                            (:animation-state :sprite :orc)
                            (:sprite-sheet)
                            (:size)
+                           (:ai :range 20000.0)
                            (:position :x 300.0 :y 300.0)))))
                (change-animation *storage* player :idle)
                (setf *player-entity* player)

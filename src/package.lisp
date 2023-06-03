@@ -1,6 +1,6 @@
 (defpackage #:lisp-jam-spring-2023
   (:use #:cl)
   (:local-nicknames (#:tiled #:cl-tiled))
-  (:import-from #:alexandria #:define-constant #:format-symbol
-                #:non-negative-fixnum)
+  (:import-from #:alexandria #:clamp #:define-constant #:format-symbol
+                #:make-keyword #:non-negative-fixnum)
   (:export #:main))

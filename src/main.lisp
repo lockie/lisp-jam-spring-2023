@@ -16,6 +16,9 @@
 (declaim (type ecs::storage *storage*))
 (defvar *storage*)
 
+(declaim (type ecs::entity *player-entity*))
+(defvar *player-entity*)
+
 (declaim (type fixnum *fps*))
 (defvar *fps* 0)
 (defvar *fpsp*)
@@ -85,7 +88,9 @@
            (cffi:with-foreign-object (event '(:union al:event))
              (setf *storage* (ecs:make-storage))
              (load-sprites)
+             (load-sounds)
              (load-map "../Resources/maps/test.tmx")
+             (ecs:run-systems *storage* :dt 0d0) ;; HACK: prime system bitmaps
              (let ((player (ecs:make-object
                             *storage*
                             `((:player)
@@ -106,6 +111,7 @@
                            (:size)
                            (:position :x 300.0 :y 300.0)))))
                (change-animation *storage* player :idle)
+               (setf *player-entity* player)
                (change-animation *storage* orc :move))
              (livesupport:setup-lisp-repl)
              (trivial-garbage:gc :full t)

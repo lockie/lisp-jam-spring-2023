@@ -73,5 +73,8 @@
                   character-target-y position-y)
             (progn
               (change-animation *storage* entity :move (minusp dx))
+              (add-sound *storage* entity (if (= *player-entity* entity)
+                                              :step-cloth1
+                                              :step-lth1))
               (setf position-x new-x
                     position-y new-y))))))

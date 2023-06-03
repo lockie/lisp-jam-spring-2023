@@ -1,4 +1,4 @@
-(uiop:run-program "curl -LOs https://gitlab.com/lockie/cl-fast-ecs/-/archive/724a/cl-fast-ecs-724a.zip")
+(uiop:run-program "curl -kLOs https://gitlab.com/lockie/cl-fast-ecs/-/archive/724a/cl-fast-ecs-724a.zip")
 (uiop:run-program
  (format nil "7z x -o~a cl-fast-ecs-724a.zip" (merge-pathnames
                                                #P"quicklisp/local-projects/"

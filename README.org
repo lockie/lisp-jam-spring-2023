@@ -34,10 +34,6 @@ To run manually:
 + 2 GB of RAM
 + 40 Mb of free disk space
 
-** Author
-
-+ Andrew Kravchuk (awkravchuk@gmail.com)
-
 ** Credits
 
 + [[https://fonts.google.com/specimen/Inconsolata/about][Inconsolata font]]

@@ -28,7 +28,8 @@
                                                        map-name)))
   ;; TODO : create player object last (render order purposes)
   (setf *player-entity* (player-entity *storage* 1)
-        *deathp* nil)
+        *deathp* nil
+        *restart* nil)
   ;; HACK: prime system bitmaps
   (ecs:run-systems *storage* :dt 0d0))
 
@@ -119,7 +120,7 @@
                                  :finally (nk:input-end *ui-context*)))
                    :do (when *restart*
                          (load* *restart*)
-                         (setf *restart* nil))
+                         (nk:clear *ui-context*))
                        (let ((new-ticks (al:get-time)))
                          (setf dt (- new-ticks ticks)
                                ticks new-ticks))

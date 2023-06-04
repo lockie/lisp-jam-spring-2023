@@ -41,7 +41,9 @@
                   (nk:label *ui-context* s 17))
         (nk:layout-space-push *ui-context*
                               '(nk::x 1000f0 nk::y 2f0 nk::w 180f0 nk::h 36f0))
-        (when (plusp (nk:button-label *ui-context* "Continue"))
+        (when (or (plusp (nk:button-label *ui-context* "Continue"))
+                  (al:with-current-keyboard-state keyboard-state
+                    (al:key-down keyboard-state :space)))
           (setf ui-active 0))
         (nk:layout-space-end *ui-context*))
       (nk:end *ui-context*))))

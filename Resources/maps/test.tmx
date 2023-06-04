@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.8" tiledversion="1.8.6" orientation="orthogonal" renderorder="right-down" width="40" height="23" tilewidth="16" tileheight="16" infinite="0" nextlayerid="8" nextobjectid="1">
+<map version="1.8" tiledversion="1.8.6" orientation="orthogonal" renderorder="right-down" width="40" height="23" tilewidth="16" tileheight="16" infinite="0" nextlayerid="8" nextobjectid="4">
  <tileset firstgid="1" name="Dungeon tiles" tilewidth="16" tileheight="16" tilecount="625" columns="25">
   <image source="../images/Environment/Dungeon Prison/Assets/Tiles.png" width="400" height="400"/>
   <tile id="0">
@@ -251,5 +251,16 @@
    eJxjYBgFtASrmFDp1UB6LdPAuacCaHclEFdB3XAHjT4CpI8NoPsmAu2eBMST8bjh7gC6jxjwbdR9FIFR91EGRt1HGeBnHmgXjIJRMApGwSgYBUMbAADb/A/t
   </data>
  </layer>
- <objectgroup id="5" name="objects"/>
+ <objectgroup id="5" name="objects">
+  <object id="3" name="furnace lore" x="151.304" y="45.1877">
+   <properties>
+    <property name="object">((:ui :text
+&quot;I'm not going in there again.
+
+
+&quot;))</property>
+   </properties>
+   <point/>
+  </object>
+ </objectgroup>
 </map>

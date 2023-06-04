@@ -52,21 +52,32 @@
                                 (gethash "obstacle" (tiled:properties tile)))
                                1 0))))))))
     (dolist (layer (tiled:map-layers map))
-      (when (typep layer 'tiled:tile-layer)
-        (dolist (cell (tiled:layer-cells layer))
-          (let ((tile-entity (gethash (tiled:cell-tile cell) tilemap))
-                (x (* +scale+ (tiled:cell-x cell)))
-                (y (* +scale+ (tiled:cell-y cell))))
-            (ecs:make-object
-             *storage*
-             `((:sprite-sheet :bitmap ,(sprite-sheet-bitmap-aref *storage*
-                                                                 tile-entity))
-               (:position :x ,x :y ,y
-                          :tile-index ,(tile-index x y))
-               (:size :width ,(size-width-aref *storage* tile-entity)
-                      :height ,(size-height-aref *storage* tile-entity))
-               (:tile :obstaclep
-                      ,(tile-obstaclep-aref *storage* tile-entity))))))))
+      (cond
+        ((typep layer 'tiled:tile-layer)
+         (dolist (cell (tiled:layer-cells layer))
+           (let ((tile-entity (gethash (tiled:cell-tile cell) tilemap))
+                 (x (* +scale+ (tiled:cell-x cell)))
+                 (y (* +scale+ (tiled:cell-y cell))))
+             (ecs:make-object
+              *storage*
+              `((:sprite-sheet :bitmap ,(sprite-sheet-bitmap-aref *storage*
+                                                                  tile-entity))
+                (:position :x ,x :y ,y
+                           :tile-index ,(tile-index x y))
+                (:size :width ,(size-width-aref *storage* tile-entity)
+                       :height ,(size-height-aref *storage* tile-entity))
+                (:tile :obstaclep
+                       ,(tile-obstaclep-aref *storage* tile-entity)))))))
+        ((typep layer 'tiled:object-layer)
+         (dolist (object (tiled:object-group-objects layer))
+           (let ((entity (ecs:make-object
+                          *storage*
+                          (with-input-from-string
+                              (s (gethash "object" (tiled:properties object)))
+                            (read s)))))
+             (make-position *storage* entity
+                            :x (* +scale+ (tiled:object-x object))
+                            :y (* +scale+ (tiled:object-y object))))))))
     (loop :for tile-entity :of-type ecs:entity
             :being :the :hash-values :of tilemap
            :do (ecs:delete-entity *storage* tile-entity))))

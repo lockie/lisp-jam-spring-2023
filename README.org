@@ -18,6 +18,11 @@
 
 + [[https://fonts.google.com/specimen/Inconsolata/about][Inconsolata font]]
 + [[http://tango.freedesktop.org][Tango icons]]
++ [[https://anokolisa.itch.io/dungeon-crawler-pixel-art-asset-pack][Pixel Art Asset Pack by Anokolisa]]
++ [[https://opengameart.org/content/footsteps-leather-cloth-armor][Footsteps Leather, Cloth, Armor by Brandon Morris]]
++ [[https://leohpaz.itch.io/minifantasy-dungeon-sfx-pack][Minifantasy Dungeon Audio Pack by Leonardo Paz]]
++ [[https://mounirtohami.itch.io/pixel-art-gui-elements][Pixel Art GUI Elements by Mounir Tohami]]
++ [[https://howyoudoing.itch.io/bookxel][Bookxel font by HowYouDoing]]
 
 ** Copyright
 

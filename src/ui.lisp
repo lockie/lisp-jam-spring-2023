@@ -2,7 +2,7 @@
 
 
 (ecs:defcomponent ui
-  (active 0 :type bit)
+  (active t :type boolean :index active-ui)
   (text "" :type string :documentation "Text, 4 rows by 94 chars max"))
 
 (define-constant +window-background-path+ "../Resources/images/window.png"
@@ -19,7 +19,7 @@
   (:components-rw (ui))
   (when (and (not (cffi:null-pointer-p *ui-context*))
              (not *deathp*)
-             (plusp ui-active))
+             ui-active)
     (nk:with-styles *ui-context*
         ((:item nk:+style-window-fixed-background+
                 (nk:style-item-image *window-background*))
@@ -46,7 +46,7 @@
         (when (or (plusp (nk:button-label *ui-context* "Continue"))
                   (al:with-current-keyboard-state keyboard-state
                     (al:key-down keyboard-state :space)))
-          (setf ui-active 0))
+          (setf ui-active nil))
         (nk:layout-space-end *ui-context*))
       (nk:end *ui-context*))))
 
@@ -98,5 +98,5 @@
         (values x y))
     (when (< (distance position-x position-y player-x player-y)
              +lore-position-threshold+)
-      (setf ui-active 1)
+      (setf ui-active t)
       (delete-position *storage* entity))))

@@ -18,7 +18,7 @@
 (ecs:defsystem player-control
   (:components-ro (player position)
    :components-rw (character))
-  (unless *deathp*
+  (unless (or *deathp* (active-ui-entities *storage* t))
     (al:with-current-keyboard-state keyboard-state
       (multiple-value-bind (current-tile-x current-tile-y)
           (tile-start position-x position-y)

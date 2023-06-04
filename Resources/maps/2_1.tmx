@@ -261,8 +261,8 @@
   <object id="7" name="Let`s go!" x="72.7966" y="76">
    <properties>
     <property name="object">((:ui  :r 90 :g 135 :b 24 :text
-&quot;Evening at last. It was really hard day. I need to rest and play
-
+&quot;\&quot;Finally home after a long day's work.
+Time to unwind and play some vidyagame for a while.\&quot;
 
 &quot;))</property>
    </properties>
@@ -282,8 +282,9 @@
   <object id="11" name="Free" x="112.166" y="83.2643">
    <properties>
     <property name="object">((:ui  :r 90 :g 135 :b 24 :text
-&quot;So it is new escape game
-I think I can try it
+&quot;\&quot;The game has this whole dungeon escape theme going on.
+Might be worth a shot.\&quot;
+
 &quot;))</property>
    </properties>
    <point/>
@@ -291,8 +292,8 @@ I think I can try it
   <object id="12" name="IamHero" x="266.996" y="82.5762">
    <properties>
     <property name="object">((:ui  :r 90 :g 135 :b 24 :text
-&quot;So stupid. How I should get this key?
-Developers can`t make any simliest mechanics?
+&quot;\&quot;How am I supposed to pick up that key from the floor?
+Do the developers even know how to implement basic mechanics?\&quot;
 
 &quot;))</property>
    </properties>
@@ -301,8 +302,8 @@ Developers can`t make any simliest mechanics?
   <object id="13" name="HopeMyMenStillAlive" x="458.298" y="92.2101">
    <properties>
     <property name="object">((:ui  :r 90 :g 135 :b 24 :text
-&quot;Is that ketchup?
-I am hungry. There was a roundup of Black Jackets in the store, so I didn't buy any food.
+&quot;\&quot;Is that ketchup?
+I'm getting hungry, but I couldn't grab dinner due to the Black Jackets' store raid.\&quot;
 
 &quot;))</property>
    </properties>
@@ -311,8 +312,8 @@ I am hungry. There was a roundup of Black Jackets in the store, so I didn't buy 
   <object id="14" name="ThereIsAnExit" x="423.891" y="306.908">
    <properties>
     <property name="object">((:ui :r 90 :g 135 :b 24  :text
-&quot;I hope that old woman who was taken by the Black Jackets will be all right.
-They beat her very hard.
+&quot;\&quot;There's this old lady they snatched during the raid. I hope she's okay.
+They beat her up pretty badly.\&quot;
 
 &quot;))</property>
    </properties>
@@ -330,9 +331,9 @@ They beat her very hard.
   </object>
   <object id="16" name="PART2" x="44.7288" y="72.9423">
    <properties>
-    <property name="object">((:ui  :r 90 :g 135 :b 24 :text
+    <property name="object">((:ui  :r 255 :g 255 :b 255 :text
 &quot;PART 2
-Workers evening
+Hushed Dusk of the Working Class
 
 &quot;))</property>
    </properties>

@@ -255,8 +255,8 @@
   <object id="3" name="ReadyToGo" x="310.951" y="65.1436">
    <properties>
     <property name="object">((:ui  :r 90 :g 135 :b 24 :text
-&quot;Final stage!
-I almost done here
+&quot;\&quot;Last level.
+Almost done!\&quot;
 
 &quot;))</property>
    </properties>
@@ -326,8 +326,8 @@ I almost done here
    <properties>
     <property name="object">((:ui  :r 90 :g 135 :b 24 :text
 &quot;Knock! Knock! Knock!
-\&quot;OpenUP! It`s Black Jackets!\&quot;
-Oh, crap...
+\&quot;OPEN UP! BLACK JACKETS!\&quot;
+\&quot;Oh shit...\&quot;
 &quot;))</property>
    </properties>
    <point/>

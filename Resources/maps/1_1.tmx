@@ -261,9 +261,9 @@
   <object id="7" name="Let`s go!" x="72.7966" y="76">
    <properties>
     <property name="object">((:ui  :r 28 :g 83 :b 147 :text
-&quot;Now it`s the right time!
-Let`s runaway and start uprising!
-
+&quot;\&quot;The time has come, the moment I've been waiting for.
+I must escape this wretched place and reunite with my allies,
+to bring down the tyrant's reign of terror.\&quot;
 &quot;))</property>
    </properties>
    <point/>
@@ -282,8 +282,8 @@ Let`s runaway and start uprising!
   <object id="11" name="Free" x="112.166" y="83.2643">
    <properties>
     <property name="object">((:ui  :r 28 :g 83 :b 147 :text
-&quot;Door is broken
-I've been working on escape for a month now
+&quot;\&quot;Months of planning and a fortunate distraction have left the door vulnerable.\&quot;
+
 
 &quot;))</property>
    </properties>
@@ -292,8 +292,8 @@ I've been working on escape for a month now
   <object id="12" name="IamHero" x="266.996" y="82.5762">
    <properties>
     <property name="object">((:ui  :r 28 :g 83 :b 147 :text
-&quot;Oh... The key... Kingdom hero like myself
-don`t need the key
+&quot;\&quot;Ah, a key... I rely on my cunning and expertise to navigate this dungeon.\&quot;
+
 
 &quot;))</property>
    </properties>
@@ -302,9 +302,9 @@ don`t need the key
   <object id="13" name="HopeMyMenStillAlive" x="470.684" y="83.2643">
    <properties>
     <property name="object">((:ui  :r 28 :g 83 :b 147 :text
-&quot;What a mess
-Hope my men still alive
-I should hurry
+&quot;\&quot;The walls bear witness to unspeakable horrors.
+I hope my allies endure.
+I must move swiftly, for my allies' survival hangs in the balance.\&quot;
 &quot;))</property>
    </properties>
    <point/>
@@ -312,8 +312,8 @@ I should hurry
   <object id="14" name="ThereIsAnExit" x="423.891" y="306.908">
    <properties>
     <property name="object">((:ui  :r 28 :g 83 :b 147  :text
-&quot;The exit is near
-Let`s hurry
+&quot;\&quot;The exit is close.
+I need to hurry.\&quot;
 
 &quot;))</property>
    </properties>
@@ -331,9 +331,9 @@ Let`s hurry
   </object>
   <object id="16" name="PART1" x="44.7288" y="72.9423">
    <properties>
-    <property name="object">((:ui :r 28 :g 83 :b 147 :text
+    <property name="object">((:ui :r 255 :g 255 :b 255 :text
 &quot;PART 1
-Kingdom`s darkest night
+Desolate Kingdom`s Deepest Night
 
 &quot;))</property>
    </properties>

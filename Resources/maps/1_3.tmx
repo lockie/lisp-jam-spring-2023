@@ -255,8 +255,8 @@
   <object id="3" name="ReadyToGo" x="310.951" y="65.1436">
    <properties>
     <property name="object">((:ui :r 28 :g 83 :b 147  :text
-&quot;Final stage!
-If I can escape we will fight for our freedom and safty for everyone
+&quot;\&quot;Final stretch!
+If I escape, I'll fight for our freedom and safety for everyone.\&quot;
 
 &quot;))</property>
    </properties>
@@ -325,8 +325,8 @@ If I can escape we will fight for our freedom and safty for everyone
   <object id="11" name="Freedom" x="312.413" y="117.671">
    <properties>
     <property name="object">((:ui  :r 28 :g 83 :b 147 :text
-&quot;I can see the light!
-Let`s fight for our freedom!
+&quot;\&quot;I can see the light.
+Ready to struggle for the freedom!\&quot;
 
 &quot;))</property>
    </properties>

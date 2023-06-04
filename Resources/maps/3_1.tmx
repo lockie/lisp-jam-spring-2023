@@ -261,9 +261,9 @@
   <object id="7" name="Let`s go!" x="72.7966" y="76">
    <properties>
     <property name="object">((:ui  :r 147 :g 56 :b 28 :text
-&quot;Hello, chat!
-Let`s try new game from Lucky Lambda!
-It is just got out, so let`s roll!
+&quot;\&quot;Hey, chat!
+Today, we`re playing the new game by Lucky Lambda studio.
+Let`s roll!\&quot;
 &quot;))</property>
    </properties>
    <point/>
@@ -282,8 +282,9 @@ It is just got out, so let`s roll!
   <object id="11" name="Free" x="112.166" y="83.2643">
    <properties>
     <property name="object">((:ui  :r 147 :g 56 :b 28 :text
-&quot;It realy feel`s like their`s regular game
-Even tileset still the same from the last title
+&quot;\&quot;This game gives me the same vibes as their previous one.
+Even the tileset is familiar.\&quot;
+
 &quot;))</property>
    </properties>
    <point/>
@@ -291,8 +292,9 @@ Even tileset still the same from the last title
   <object id="12" name="IamHero" x="266.996" y="82.5762">
    <properties>
     <property name="object">((:ui  :r 147 :g 56 :b 28 :text
-&quot;So metaphorical to drop the key just after it ment to be used
-
+&quot;\&quot;Talk about symbolism, chat!
+The key on the ground, long after we needed it. 
+So metaphorical!\&quot;
 &quot;))</property>
    </properties>
    <point/>
@@ -300,9 +302,9 @@ Even tileset still the same from the last title
   <object id="13" name="HopeMyMenStillAlive" x="458.298" y="92.2101">
    <properties>
     <property name="object">((:ui  :r 147 :g 56 :b 28 :text
-&quot;As we all know 3D modeller has quit LL couple of months ago
-So there will be no any complex bodies in this game.
-Maybe they will make some dls next year.
+&quot;\&quot;As we all know, the designer left Lucky Lambda couple of months ago,
+so don't expect any fancy graphics in the game.
+Maybe we'll get some DLC this year.\&quot;
 &quot;))</property>
    </properties>
    <point/>
@@ -310,8 +312,8 @@ Maybe they will make some dls next year.
   <object id="14" name="ThereIsAnExit" x="423.891" y="306.908">
    <properties>
     <property name="object">((:ui  :r 147 :g 56 :b 28 :text
-&quot;Gameplay is very straightforward.
-And I don`t realy like it very much.
+&quot;\&quot;Gotta be honest, chat. The gameplay is just too straightforward for my taste.
+Not really my thing.\&quot;
 
 &quot;))</property>
    </properties>
@@ -329,9 +331,9 @@ And I don`t realy like it very much.
   </object>
   <object id="16" name="PART3" x="44.7288" y="72.9423">
    <properties>
-    <property name="object">((:ui  :r 147 :g 56 :b 28 :text
+    <property name="object">((:ui  :r 255 :g 255 :b 255 :text
 &quot;PART 2
-In the beginning of the day. Philosopher`s morning
+Omniscient Philosopher`s Fresh Morning
 
 &quot;))</property>
    </properties>

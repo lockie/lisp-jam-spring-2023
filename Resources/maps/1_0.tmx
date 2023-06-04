@@ -271,7 +271,7 @@ Press Space to continue
   <object id="7" name="WakeUP" x="105" y="77">
    <properties>
     <property name="object">((:ui :r 28 :g 83 :b 147 :text
-&quot;I need to wake up...
+&quot;\&quot;I need to wake up...\&quot;
 
 
 &quot;))</property>

@@ -275,8 +275,8 @@
   <object id="3" name="Next floor" x="59" y="79">
    <properties>
     <property name="object">((:ui  :r 147 :g 56 :b 28 :text
-&quot;Levels looks all the same
-As we don`t have minimap it realy easy to get lost.
+&quot;\&quot;Chat, I'm not gonna lie. The levels all blend together,
+and it's a real struggle without a minimap.\&quot;
 
 &quot;))</property>
    </properties>
@@ -302,9 +302,9 @@ As we don`t have minimap it realy easy to get lost.
   <object id="7" name="Starving" x="156.034" y="84.7151">
    <properties>
     <property name="object">((:ui  :r 147 :g 56 :b 28 :text
-&quot;Damn it! I just spill my coffee all over my desk!
-Chat I need some time to clean it up!
-
+&quot;...
+\&quot;Oh goddamn it! Spilled my damn coffee!
+Gotta clean up this mess. Be right back, guys!\&quot;
 &quot;))</property>
    </properties>
    <point/>
@@ -312,8 +312,8 @@ Chat I need some time to clean it up!
   <object id="8" name="Drugs" x="248.491" y="148.786">
    <properties>
     <property name="object">((:ui  :r 147 :g 56 :b 28 :text
-&quot;Well I am back! Let`s go further!
-I think they sould put some more consumables
+&quot;\&quot;Alright I'm back, people! Let's continue playing, shall we?
+And hey, this game seriously needs more consumables!\&quot;
 
 &quot;))</property>
    </properties>
@@ -322,9 +322,9 @@ I think they sould put some more consumables
   <object id="9" name="Hope" x="407.203" y="80.5864">
    <properties>
     <property name="object">((:ui  :r 147 :g 56 :b 28 :text
-&quot;And intaractable parts like traps are spotted right away.
-But scripted parts are amazing never the less 
-
+&quot;\&quot;Here's the thing about this game: the traps are laughably easy to avoid.
+I mean, you can see them coming from a mile away.
+But I gotta admit, the scripted parts are pretty neat.
 &quot;))</property>
    </properties>
    <point/>
@@ -332,8 +332,7 @@ But scripted parts are amazing never the less
   <object id="10" name="StopMurders" x="500.65" y="177.668">
    <properties>
     <property name="object">((:ui  :r 147 :g 56 :b 28 :text
-&quot;I realy gratefull for devs for this early access key
-
+&quot;\&quot;Big thanks to the developers for providing me with a key to the early version of this game.\&quot;
 
 &quot;))</property>
    </properties>
@@ -342,7 +341,7 @@ But scripted parts are amazing never the less
   <object id="11" name="DontStop" x="57.6844" y="310.359">
    <properties>
     <property name="object">((:ui  :r 147 :g 56 :b 28 :text
-&quot;So we almost there, chat. Hold your pants, the end twist gotta be mindblowing!
+&quot;\&quot;We`re almost there, chat. Brace yourselves for a mind-blowing finale!
 
 
 &quot;))</property>
@@ -362,8 +361,8 @@ But scripted parts are amazing never the less
   <object id="13" name="Spoiler" x="260.052" y="305.868">
    <properties>
     <property name="object">((:ui  :r 147 :g 56 :b 28 :text
-&quot;Chat, we are not going there yet. LL asked me not to spoil good ending
-
+&quot;\&quot;Chat, we're skipping that part. 
+Lucky Lambda asked me not to spoil the good ending.\&quot;
 
 &quot;))</property>
    </properties>

@@ -255,9 +255,9 @@
   <object id="3" name="ReadyToGo" x="310.951" y="65.1436">
    <properties>
     <property name="object">((:ui  :r 147 :g 56 :b 28 :text
-&quot;Let`s sum up. Technically it is quite raw.
-But you still will love hero. Tyrany should be overthrown.
-We sure needed more games with such humane message in our challenging times.
+&quot;\&quot;Let`s wrap it up. Admittedly, the game has its technical flaws, but
+the hero's quest to overthrow the tyrant will captivate you.
+In these challenging times, we need more games that touch our humanity.\&quot;
 &quot;))</property>
    </properties>
    <point/>
@@ -281,9 +281,9 @@ We sure needed more games with such humane message in our challenging times.
   <object id="11" name="Freedom" x="314.349" y="256.409">
    <properties>
     <property name="object">((:ui  :r 147 :g 56 :b 28 :text
-&quot;Well that is all Chat!
-I gotta go! My main work is calling for me!
-Oh, crap... Coffee stain looks so terrible on my Black Jacket
+&quot;\&quot;That`s all from me for today, chat. Duty calls.
+Oh, I'll definitely land in trouble with my superiours because of my appearance.
+These coffee stains are quite noticeable on my uniform black jacket.\&quot;
 &quot;))</property>
    </properties>
    <point/>

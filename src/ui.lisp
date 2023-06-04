@@ -2,7 +2,7 @@
 
 
 (ecs:defcomponent ui
-  (active nil :type boolean :index active-ui)
+  (active 0 :type bit :index active-ui)
   (text "" :type string :documentation "Text, 4 rows by 94 chars max")
   (r 0 :type (unsigned-byte 8))
   (g 0 :type (unsigned-byte 8))
@@ -23,7 +23,7 @@
   (when (and (not (cffi:null-pointer-p *ui-context*))
              (not *deathp*)
              (not *restart*)
-             ui-active)
+             (plusp ui-active))
     (nk:with-color (text-color :r ui-r :g ui-g :b ui-b :a 255)
       (nk:with-styles *ui-context*
           ((:item nk:+style-window-fixed-background+
@@ -53,7 +53,7 @@
                     (al:with-current-keyboard-state keyboard-state
                       (al:key-down keyboard-state :space)))
             ;; HACK: update index
-            (setf (ui-active-aref *storage* entity) nil))
+            (setf (ui-active-aref *storage* entity) 0))
           (nk:layout-space-end *ui-context*))
         (nk:end *ui-context*)))))
 
@@ -106,5 +106,5 @@
     (when (< (distance position-x position-y player-x player-y)
              +lore-position-threshold+)
       ;; HACK: update index
-      (setf (ui-active-aref *storage* entity) t)
+      (setf (ui-active-aref *storage* entity) 1)
       (delete-position *storage* entity))))

@@ -11,6 +11,7 @@
   (play-time 0d0 :type double-float)
   (length 0.0 :type single-float)
   (playing 0 :type bit)
+  (play-through 0 :type bit)
   (gain 0.0 :type single-float)
   (pan 0.0 :type single-float))
 
@@ -55,14 +56,15 @@
               (/ +scale+ +window-width+))
            -1.0 1.0))))
 
-(defun add-sound (storage entity name &key (oncep t) (playingp t))
+(defun add-sound (storage entity name &key (oncep t) (playingp t) throughp)
   (let ((sample-entity (sound-entity storage name)))
     (with-sound-sample (_ source-sample) storage sample-entity
       (unless (has-sound-p storage entity)
         (make-sound storage entity))
       (with-sound () storage entity
-        (unless (and (eq source-sample sample) ;; another sound sample
-                     (plusp playing))          ;; same sample, but start anew
+        (when (or (zerop playing)
+                  (and (zerop play-through)
+                       (not (eq source-sample sample))))
           (unless (cffi:null-pointer-p sample-instance)
             (al:stop-sample-instance sample-instance))
           (let ((instance (al:create-sample-instance source-sample)))
@@ -70,6 +72,7 @@
                   sample-instance instance
                   length (al:get-sample-instance-time instance)
                   playing (if playingp 1 0)
+                  play-through (if throughp 1 0)
                   play-time 0d0)
             (al:attach-sample-instance-to-mixer instance (al:get-default-mixer))
             (al:set-sample-instance-playmode instance

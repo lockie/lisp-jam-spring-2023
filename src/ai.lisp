@@ -4,14 +4,15 @@
 ;; TODO: death and rebirth
 
 (ecs:defcomponent ai
+  (seen 0 :type bit)
   (notice-range 0.0 :type single-float
                     :documentation "Square of notice distance in pixels")
   (attack-range 0.0 :type single-float
                     :documentation "Square of attack distance in pixels"))
 
 (ecs:defsystem ai
-  (:components-ro (ai position)
-   :components-rw (character))
+  (:components-ro (position)
+   :components-rw (ai character))
   (unless *deathp*
     (multiple-value-bind (player-x player-y)
         (with-position () *storage* *player-entity*
@@ -20,7 +21,10 @@
                                        player-x player-y)))
         (when (< player-distance ai-notice-range)
           (setf character-target-x player-x
-                character-target-y player-y))
+                character-target-y player-y)
+          (when (zerop ai-seen)
+            (add-sound *storage* entity :gotcha :throughp t)
+            (setf ai-seen 1)))
         (when (< player-distance ai-attack-range)
           (setf *deathp* t)
           (change-animation

@@ -18,11 +18,12 @@
 
 + [[https://fonts.google.com/specimen/Inconsolata/about][Inconsolata font]]
 + [[http://tango.freedesktop.org][Tango icons]]
-+ [[https://anokolisa.itch.io/dungeon-crawler-pixel-art-asset-pack][Pixel Art Asset Pack by Anokolisa]]
-+ [[https://opengameart.org/content/footsteps-leather-cloth-armor][Footsteps Leather, Cloth, Armor by Brandon Morris]]
++ [[https://anokolisa.itch.io/dungeon-crawler-pixel-art-asset-pack][Pixel Art Asset Pack by Anokolisa]], [[https://creativecommons.org/publicdomain/zero/1.0][CC0]]
++ [[https://opengameart.org/content/footsteps-leather-cloth-armor][Footsteps Leather, Cloth, Armor by Brandon Morris]], [[https://creativecommons.org/publicdomain/zero/1.0][CC0]]
 + [[https://leohpaz.itch.io/minifantasy-dungeon-sfx-pack][Minifantasy Dungeon Audio Pack by Leonardo Paz]]
-+ [[https://mounirtohami.itch.io/pixel-art-gui-elements][Pixel Art GUI Elements by Mounir Tohami]]
++ [[https://mounirtohami.itch.io/pixel-art-gui-elements][Pixel Art GUI Elements by Mounir Tohami]], [[https://creativecommons.org/publicdomain/zero/1.0][CC0]]
 + [[https://howyoudoing.itch.io/bookxel][Bookxel font by HowYouDoing]]
++ [[https://opengameart.org/content/male-gotcha][Male gotcha sound by TaniCorn]], [[https://creativecommons.org/licenses/by/4.0][CC-BY 4.0]]
 
 ** Copyright
 

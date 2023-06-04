@@ -30,6 +30,10 @@
   (setf *player-entity* (player-entity *storage* 1)
         *deathp* nil
         *restart* nil)
+  (let ((music (ecs:make-entity *storage*)))
+    (add-sound *storage* music :alone :oncep nil)
+    (with-sound () *storage* music
+      (setf gain 0.05)))
   ;; HACK: prime system bitmaps
   (ecs:run-systems *storage* :dt 0d0))
 

@@ -44,6 +44,7 @@ To run manually:
 + [[https://mounirtohami.itch.io/pixel-art-gui-elements][Pixel Art GUI Elements by Mounir Tohami]], [[https://creativecommons.org/publicdomain/zero/1.0][CC0]]
 + [[https://howyoudoing.itch.io/bookxel][Bookxel font by HowYouDoing]]
 + [[https://opengameart.org/content/male-gotcha][Male gotcha sound by TaniCorn]], [[https://creativecommons.org/licenses/by/4.0][CC-BY 4.0]]
++ [[https://makotohiramatsu.itch.io/lost][Soundscape and Ambient Music Pack: LOST by Makoto Hiramatsu]], [[https://creativecommons.org/licenses/by/4.0][CC-BY 4.0]]
 
 ** Copyright
 

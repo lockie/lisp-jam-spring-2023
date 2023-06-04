@@ -22,9 +22,11 @@
     (when playing
       (incf sound-play-time dt)
       (when (> sound-play-time sound-length)
-        (setf sound-play-time 0d0
-              sound-playing 0
-              playing 0)))
+        (setf sound-play-time 0d0)
+        (unless (eq (al:get-sample-instance-playmode sound-sample-instance)
+                  :loop)
+          (setf sound-playing 0
+                playing nil))))
     (unless (eq playing (al:get-sample-instance-playing sound-sample-instance))
       (al:set-sample-instance-playing sound-sample-instance playing))
     (when playing

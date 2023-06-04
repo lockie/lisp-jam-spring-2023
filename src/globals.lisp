@@ -33,3 +33,5 @@
 (defvar *ui-font*)
 
 (defvar *ui-context*)
+
+(defvar *quit*)

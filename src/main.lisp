@@ -110,14 +110,17 @@
                    :with ticks :of-type double-float := (al:get-time)
                    :with last-repl-update :of-type double-float := ticks
                    :with dt :of-type double-float := 0d0
-                   :while (loop :initially (nk:input-begin *ui-context*)
-                                :while (al:get-next-event event-queue event)
-                                :for type :=
-                                          (cffi:foreign-slot-value
-                                           event '(:union al:event) 'al::type)
-                                :do (nk:allegro-handle-event event)
-                                :always (not (eq type :display-close))
-                                :finally (nk:input-end *ui-context*))
+                   :with *quit* := nil
+                   :while (and
+                           (not *quit*)
+                           (loop :initially (nk:input-begin *ui-context*)
+                                 :while (al:get-next-event event-queue event)
+                                 :for type :=
+                                    (cffi:foreign-slot-value
+                                     event '(:union al:event) 'al::type)
+                                 :do (nk:allegro-handle-event event)
+                                 :always (not (eq type :display-close))
+                                 :finally (nk:input-end *ui-context*)))
                    :do (let ((new-ticks (al:get-time)))
                          (setf dt (- new-ticks ticks)
                                ticks new-ticks))

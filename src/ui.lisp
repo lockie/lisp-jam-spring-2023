@@ -18,6 +18,7 @@
 (ecs:defsystem ui
   (:components-rw (ui))
   (when (and (not (cffi:null-pointer-p *ui-context*))
+             (not *deathp*)
              (plusp ui-active))
     (nk:with-styles *ui-context*
         ((:item nk:+style-window-fixed-background+
@@ -46,6 +47,44 @@
                   (al:with-current-keyboard-state keyboard-state
                     (al:key-down keyboard-state :space)))
           (setf ui-active 0))
+        (nk:layout-space-end *ui-context*))
+      (nk:end *ui-context*))))
+
+(ecs:defsystem you-died
+  (:components-ro (player))
+  (when (and (not (cffi:null-pointer-p *ui-context*))
+             *deathp*)
+    (nk:with-styles *ui-context*
+        ((:item nk:+style-window-fixed-background+
+                (nk:style-item-image *window-background*))
+         (:item nk:+style-button-normal+
+                (nk:style-item-image *button-background*))
+         (:item nk:+style-button-hover+
+                (nk:style-item-image *button-background*))
+         (:item nk:+style-button-active+
+                (nk:style-item-image *button-background2*)))
+      (when (plusp
+             (nk:begin
+              *ui-context* "death"
+              '(nk::x 5f0 nk::y 445f0 nk::w 1270f0 nk::h 270f0) 0))
+        (nk:layout-row-static *ui-context* 64f0 1250 1)
+        (nk:layout-space-begin *ui-context* 1 28f0 1)
+        (nk:layout-space-push
+         *ui-context* '(nk::x 66f0 nk::y 0f0 nk::w 1120f0 nk::h 30f0))
+        (nk:label *ui-context* "You died." 17)
+        (nk:layout-space-end *ui-context*)
+        (nk:layout-row-static *ui-context* 90f0 1250 1)
+        (nk:layout-space-begin *ui-context* 1 36f0 2)
+        (nk:layout-space-push *ui-context*
+                              '(nk::x 800f0 nk::y 2f0 nk::w 180f0 nk::h 36f0))
+        (when (or (plusp (nk:button-label *ui-context* "RAGEQUIT!")))
+          (uiop:quit))
+        (nk:layout-space-push *ui-context*
+                              '(nk::x 1000f0 nk::y 2f0 nk::w 180f0 nk::h 36f0))
+        (when (or (plusp (nk:button-label *ui-context* "Continue"))
+                  (al:with-current-keyboard-state keyboard-state
+                    (al:key-down keyboard-state :space)))
+          (setf *restart* t))
         (nk:layout-space-end *ui-context*))
       (nk:end *ui-context*))))
 

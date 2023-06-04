@@ -1,8 +1,6 @@
 (in-package #:lisp-jam-spring-2023)
 
 
-;; TODO: death and rebirth
-
 (ecs:defcomponent ai
   (seen 0 :type bit)
   (notice-range 0.0 :type single-float

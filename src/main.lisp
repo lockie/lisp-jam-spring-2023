@@ -19,6 +19,17 @@
                   (format nil "~d FPS" *fps*)))
   (nk:allegro-render))
 
+(defun load* ()
+  (setf *storage* (ecs:make-storage))
+  (load-sprites)
+  (load-sounds)
+  (load-map "../Resources/maps/1_1.tmx")
+  ;; TODO : create player object last (render order purposes)
+  (setf *player-entity* (player-entity *storage* 1)
+        *deathp* nil)
+  ;; HACK: prime system bitmaps
+  (ecs:run-systems *storage* :dt 0d0))
+
 (cffi:defcallback %main :int ((argc :int) (argv :pointer))
   (declare (ignore argc argv))
   (handler-bind
@@ -82,14 +93,7 @@
                    *button-background2*
                    (al:ensure-loaded #'nk:allegro-create-image
                                      +button-background2-path+))
-             (setf *storage* (ecs:make-storage))
-             (load-sprites)
-             (load-sounds)
-             (load-map "../Resources/maps/test.tmx")
-             ;; TODO : create player object last (render order purposes)
-             (setf *player-entity* (player-entity *storage* 1)
-                   *deathp* nil)
-             (ecs:run-systems *storage* :dt 0d0) ;; HACK: prime system bitmaps
+             (load*)
              (setf *ui-context*
                    (nk:allegro-init
                     *ui-font* display +window-width+ +window-height+))
@@ -100,6 +104,7 @@
                    :with last-repl-update :of-type double-float := ticks
                    :with dt :of-type double-float := 0d0
                    :with *quit* := nil
+                   :with *restart* := nil
                    :while (and
                            (not *quit*)
                            (loop :initially (nk:input-begin *ui-context*)
@@ -110,7 +115,10 @@
                                  :do (nk:allegro-handle-event event)
                                  :always (not (eq type :display-close))
                                  :finally (nk:input-end *ui-context*)))
-                   :do (let ((new-ticks (al:get-time)))
+                   :do (when *restart*
+                         (load*)
+                         (setf *restart* nil))
+                       (let ((new-ticks (al:get-time)))
                          (setf dt (- new-ticks ticks)
                                ticks new-ticks))
                        (when (> (- ticks last-repl-update)

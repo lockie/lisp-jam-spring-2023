@@ -35,3 +35,4 @@
 (defvar *ui-context* (cffi:null-pointer))
 
 (defvar *quit*)
+(defvar *restart*)

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.8" tiledversion="1.8.6" orientation="orthogonal" renderorder="right-down" width="40" height="23" tilewidth="16" tileheight="16" infinite="0" nextlayerid="8" nextobjectid="11">
+<map version="1.8" tiledversion="1.8.6" orientation="orthogonal" renderorder="right-down" width="40" height="23" tilewidth="16" tileheight="16" infinite="0" nextlayerid="9" nextobjectid="13">
  <tileset firstgid="1" name="Dungeon tiles" tilewidth="16" tileheight="16" tilecount="625" columns="25">
   <image source="../images/Environment/Dungeon Prison/Assets/Tiles.png" width="400" height="400"/>
   <tile id="0">
@@ -197,6 +197,11 @@
     <property name="obstacle" type="bool" value="true"/>
    </properties>
   </tile>
+  <tile id="450">
+   <properties>
+    <property name="obstacle" value="true"/>
+   </properties>
+  </tile>
  </tileset>
  <tileset firstgid="626" name="Dungeon props" tilewidth="16" tileheight="16" tilecount="625" columns="25">
   <image source="../images/Environment/Dungeon Prison/Assets/Props.png" width="400" height="400"/>
@@ -233,12 +238,12 @@
  </tileset>
  <layer id="1" name="floor" width="40" height="23">
   <data encoding="base64" compression="zlib">
-   eJztj0EOQEAQBGc3wQdwxC/w/5tn4BdItIOEOa4Rm+hK6tqpFiFPSWCqzD4tulPBWtkE7Jw/B2f70arv2BnRNsHZhW283bega4VbpH25Fylg6ePra2F3sTfq07uW24QQQgghf2MHJNENtA==
+   eJxjYBgFIwXII2Fc4qRiQvYQUk+J3bTAo+6jfnrA5lZq+YGQPaS4jxh30yo8Rt036r5R9+E2e7CCUfdRBoai+5DFHjEyMDwG4ieMlOUDWmAQ+A101x8g/jtI3SfCxMAgCsRiTAPvHlLLpoECg919yAAAgn41vg==
   </data>
  </layer>
  <layer id="2" name="walls" width="40" height="23">
   <data encoding="base64" compression="zlib">
-   eJztzsEJgEAQxdDfoG2IlqFlrK1scTvgwQJyGSEPcs+RZG/aWV15zfRz5/vryD/GP8Y/xj/GP8Y/xj/GP8Y/5g9/o9qa9lQLoiUylA==
+   eJztll8OwUAQxrs4hRKHQE/hzxHEg+AKHqRcwUODK3hyBRczGzvpdDJLp+tvYpJfxOzmm09jt18U3WoBGKAG1IGl0NdCdaISetJ+XJsDTSAGWsAMaLC+FtSpOS0+R9q/Zf5wLQW6QA/oA2ugzfpaUCd2WnyOtJ/7w7U962dAIvS1lTn9xDOHF/d3Mf694xBjFbU0/j5Rv+Zv6Bix/sDT1xbq+OY88od1YDpH198E+uPz7BzrsaP056tn+0PNv79y9fcXVtI86YzgOT8K++8VP9dafPP4M8TfgfkGswzNN42oWo7SgrmI+rM5Z2ryfINZhuab1FTLUVowF1F/NuesTJ5vMMtMCHtT/P4qEvdJ/dmcszPFfMP/u+c3vYt9WebE5mvP8rvrF/yF3B2vgOabb3x+9L61d+cVIkNdlA==
   </data>
  </layer>
  <layer id="4" name="doors" width="40" height="23">
@@ -248,37 +253,93 @@
  </layer>
  <layer id="3" name="props" width="40" height="23">
   <data encoding="base64" compression="zlib">
-   eJztzmERABAMgNGdFSAGMYhBJZ2tgL+2O99L8ETwg6wiRb0Xd9VuLfCv220E/k27rcC/nbwHAAAAeOEAi60CWA==
+   eJxjYBgFtACrmGhn9hJmBoalzJg0KeAOFvfdBYqtAOKVTBA2sXLoYC/QLfuYMWlKwTegvQeB+BAThE2sHL3AqPsoA/zANHILaPdtJgibWLlRgB28HEThNJ2MNEWOHnLBBjLsIkXPMmBcLCczPn4D7fkDxH+BeAYBO4HyDcjqiQX7gW47QKb7RID6RIFYDIg3ErATKN+ArH4UjBywDpg21lOYp4uB+pdSsVxYxAzBC4H4ONDcExSa3QPUv4+K7tvNDMG7gPgB0NyHA1Q3j4JRQA4AAHP6RGc=
+  </data>
+ </layer>
+ <layer id="8" name="ontop" width="40" height="23">
+  <data encoding="base64" compression="zlib">
+   eJxjYBhaoJoJt9x8ZuxsQnLE2IPPXmQwBY+6HczY2YTkiLEHn73UAhOIcNdAgomDwH2rBoEbRsEoGO7AlJGBwYxxoF2BG/gB3eY/QO47BC2DDhMoi+QGcfiBwGB331AF89DSxQIi6yxi2k2kqMMFtqPp30mkecS0m0hRNwpGwSigDAAAsbQSyw==
   </data>
  </layer>
  <objectgroup id="5" name="objects">
-  <object id="3" name="Tip" x="50.6373" y="65.521">
+  <object id="3" name="Next floor" x="59" y="79">
    <properties>
-    <property name="object">((:ui :r 255 :g 255 :b 255 :text
-&quot;Use WASD to move around
-Follow green light
-Press Space to continue
+    <property name="object">((:ui  :r 90 :g 135 :b 24 :text
+&quot;Tomorrow is an important meeting. Gotta get out early
+They now often block roads and even taxis are often late.
+
 &quot;))</property>
    </properties>
    <point/>
   </object>
-  <object id="6" name="win" x="334.75" y="81.5587">
+  <object id="4" name="orc" x="588.649" y="299.835">
    <properties>
-    <property name="object" value="((:stairs :level &quot;1_1&quot;))"/>
+    <property name="object">((:character :speed 65.0)
+ (:animation-state :sprite :orc)
+ (:sprite-sheet)
+ (:size)
+ (:ai :notice-range 40000.0
+      :attack-range 1000.0))</property>
    </properties>
    <point/>
   </object>
-  <object id="7" name="WakeUP" x="105" y="77">
+  <object id="6" name="win" x="14.8491" y="300.885">
    <properties>
-    <property name="object">((:ui :r 28 :g 83 :b 147 :text
-&quot;I need to wake up...
+    <property name="object" value="((:stairs :level &quot;2_3&quot;))"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="7" name="Starving" x="156.034" y="84.7151">
+   <properties>
+    <property name="object">((:ui  :r 90 :g 135 :b 24 :text
+&quot;I need to try to work online.
+They say that in small towns Black Jackets are not so brutal.
+
+&quot;))</property>
+   </properties>
+   <point/>
+  </object>
+  <object id="8" name="Drugs" x="248.491" y="148.786">
+   <properties>
+    <property name="object">((:ui  :r 90 :g 135 :b 24 :text
+&quot;On the other side there's nowhere to hide.
+And you can't get many necessary things even by smuggling
+
+&quot;))</property>
+   </properties>
+   <point/>
+  </object>
+  <object id="9" name="Hope" x="407.203" y="80.5864">
+   <properties>
+    <property name="object">((:ui :r 90 :g 135 :b 24 :text
+&quot;When did it all go wrong?
+I want some parmesan. Just before the war it was last time it could be bought 
+
+&quot;))</property>
+   </properties>
+   <point/>
+  </object>
+  <object id="10" name="StopMurders" x="500.65" y="177.668">
+   <properties>
+    <property name="object">((:ui  :r 90 :g 135 :b 24 :text
+&quot;They say there was a procession yesterday and many were seized right on the street.
+Good thing I didn't go
+
+&quot;))</property>
+   </properties>
+   <point/>
+  </object>
+  <object id="11" name="DontStop" x="57.6844" y="310.359">
+   <properties>
+    <property name="object">((:ui  :r 90 :g 135 :b 24 :text
+&quot;Oh, the game doesn't seem to be that hard.
 
 
 &quot;))</property>
    </properties>
    <point/>
   </object>
-  <object id="10" name="Player" x="37" y="62">
+  <object id="12" name="Player" x="44" y="79">
    <properties>
     <property name="object">((:player)
  (:character :speed 75.0)

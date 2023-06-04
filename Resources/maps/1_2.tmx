@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.10.1" orientation="orthogonal" renderorder="right-down" width="40" height="23" tilewidth="16" tileheight="16" infinite="0" nextlayerid="9" nextobjectid="13">
+<map version="1.8" tiledversion="1.8.6" orientation="orthogonal" renderorder="right-down" width="40" height="23" tilewidth="16" tileheight="16" infinite="0" nextlayerid="9" nextobjectid="13">
  <tileset firstgid="1" name="Dungeon tiles" tilewidth="16" tileheight="16" tilecount="625" columns="25">
   <image source="../images/Environment/Dungeon Prison/Assets/Tiles.png" width="400" height="400"/>
   <tile id="0">
@@ -264,7 +264,7 @@
  <objectgroup id="5" name="objects">
   <object id="3" name="Next floor" x="59" y="79">
    <properties>
-    <property name="object">((:ui :text
+    <property name="object">((:ui :r 28 :g 83 :b 147  :text
 &quot;One more floor
 Be carefull hero, no need to rush into the ambush.
 
@@ -291,7 +291,7 @@ Be carefull hero, no need to rush into the ambush.
   </object>
   <object id="7" name="Starving" x="165.668" y="79.8982">
    <properties>
-    <property name="object">((:ui :text
+    <property name="object">((:ui  :r 28 :g 83 :b 147 :text
 &quot;Dinner room...
 Whole kingdom is starving for decades now
 Curse on the tyrany!
@@ -301,7 +301,7 @@ Curse on the tyrany!
   </object>
   <object id="8" name="Drugs" x="248.491" y="148.786">
    <properties>
-    <property name="object">((:ui :text
+    <property name="object">((:ui  :r 28 :g 83 :b 147 :text
 &quot;Healing poitions only seems to be usefull
 Orc tyran`s shamans convert all of them in highly
 addictive drugs
@@ -311,7 +311,7 @@ addictive drugs
   </object>
   <object id="9" name="Hope" x="407.203" y="80.5864">
    <properties>
-    <property name="object">((:ui :text
+    <property name="object">((:ui :r 28 :g 83 :b 147  :text
 &quot;Every citizen dreams of a brighter future
 I can change everything and make the kingdom kind
 
@@ -321,7 +321,7 @@ I can change everything and make the kingdom kind
   </object>
   <object id="10" name="StopMurders" x="500.65" y="177.668">
    <properties>
-    <property name="object">((:ui :text
+    <property name="object">((:ui :r 28 :g 83 :b 147  :text
 &quot;Killings and kidnappings must be stopped
 
 
@@ -331,7 +331,7 @@ I can change everything and make the kingdom kind
   </object>
   <object id="11" name="DontStop" x="57.6844" y="310.359">
    <properties>
-    <property name="object">((:ui :text
+    <property name="object">((:ui  :r 28 :g 83 :b 147 :text
 &quot;Almost there
 Do not stop! You are being chased!
 

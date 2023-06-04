@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.8" tiledversion="1.8.6" orientation="orthogonal" renderorder="right-down" width="40" height="23" tilewidth="16" tileheight="16" infinite="0" nextlayerid="8" nextobjectid="11">
+<map version="1.8" tiledversion="1.8.6" orientation="orthogonal" renderorder="right-down" width="40" height="23" tilewidth="16" tileheight="16" infinite="0" nextlayerid="8" nextobjectid="17">
  <tileset firstgid="1" name="Dungeon tiles" tilewidth="16" tileheight="16" tilecount="625" columns="25">
   <image source="../images/Environment/Dungeon Prison/Assets/Tiles.png" width="400" height="400"/>
   <tile id="0">
@@ -233,12 +233,12 @@
  </tileset>
  <layer id="1" name="floor" width="40" height="23">
   <data encoding="base64" compression="zlib">
-   eJztj0EOQEAQBGc3wQdwxC/w/5tn4BdItIOEOa4Rm+hK6tqpFiFPSWCqzD4tulPBWtkE7Jw/B2f70arv2BnRNsHZhW283bega4VbpH25Fylg6ePra2F3sTfq07uW24QQQgghf2MHJNENtA==
+   eJxjYBgFIwHIo2F62EGKPdj00gOPum9g3EdNd+Mza7CBwey2RgZU9zUNrHMwwKj7KAPD2X1MUEwrkAHE6Qyo7ksF4kwi9UtDMQwwURmD3NaA5r46BuLD0ASK0d1LLQxy20wg/o+EpxPpPmxlugmV8Uws9hCbBompox4xMjA8BuInjBC/U6v+pZb7fgPd9QeI/w5S94kAE7koEIsx0dd9s4DYFwvG5wcGHHrwYT8y3UcsoLTdgSscZhPQBwDBJ0fC
   </data>
  </layer>
  <layer id="2" name="walls" width="40" height="23">
   <data encoding="base64" compression="zlib">
-   eJztzsEJgEAQxdDfoG2IlqFlrK1scTvgwQJyGSEPcs+RZG/aWV15zfRz5/vryD/GP8Y/xj/GP8Y/xj/GP8Y/5g9/o9qa9lQLoiUylA==
+   eJztlskNwkAMRSdAFSxVsFTBUgMHthY4QKAFDmwtcKIMqsIjjSXnKwaThEUoT/oS/4eMv3IZO+fcnBSRKkFV0sIVC854Zc6GVCc1gpqkCakG56G3Zt7PYAbP2Rr7tUmdoC5pRWrBeeitmfcxzOA51n7IntSD89BbM++Pyuys/TyjJ96apf2HydPvE/xrvz5pWFCHR2dZ+p1IA9BZybOIz8KO/fCspKQkG7xXMO/YXfLAuwvDu8tYlJ5FyXekn4q8pszQcmu/tvC8uyxFhxj6Sb8WeUuZoeXWfojfXXaiwzH8vkVJ7zmI93rKDC23oN29F9HhCt8PPaPtKY/2l2d8czew8Ov9NOT9nnav/xL4jS07UVHcAVIENIo=
   </data>
  </layer>
  <layer id="4" name="doors" width="40" height="23">
@@ -248,43 +248,92 @@
  </layer>
  <layer id="3" name="props" width="40" height="23">
   <data encoding="base64" compression="zlib">
-   eJztzmERABAMgNGdFSAGMYhBJZ2tgL+2O99L8ETwg6wiRb0Xd9VuLfCv220E/k27rcC/nbwHAAAAeOEAi60CWA==
+   eJxjYBgF2MAqJuqZg27WfGbsatHFq7G4YRlQzXIgvkOi+wSAegSx2AsyB92sHTjchy4+BYsb9gPVHABiU0YGBjNG4t2nCdSjhcNeWgA/oNv8SXCfE9BtzmS67waZaek9CfZFA9XG0DH8SAW9VMpPo2AUjIJRMBTBvEFcPoPAdizuW4DDzejiyG0XWLsFW/uF2mAnDvehiyO3XWDtFmztl1EwCkYB9QAAsYEYDw==
   </data>
  </layer>
  <objectgroup id="5" name="objects">
-  <object id="3" name="Tip" x="50.6373" y="65.521">
+  <object id="6" name="win" x="173.404" y="345.62">
    <properties>
-    <property name="object">((:ui :r 255 :g 255 :b 255 :text
-&quot;Use WASD to move around
-Follow green light
-Press Space to continue
+    <property name="object" value="((:stairs :level &quot;3_2&quot;))"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="7" name="Let`s go!" x="72.7966" y="76">
+   <properties>
+    <property name="object">((:ui  :r 147 :g 56 :b 28 :text
+&quot;Hello, chat!
+Let`s try new game from Lucky Lambda!
+It is just got out, so let`s roll!
 &quot;))</property>
    </properties>
    <point/>
   </object>
-  <object id="6" name="win" x="334.75" y="81.5587">
+  <object id="10" name="orc" x="56.4271" y="297.274">
    <properties>
-    <property name="object" value="((:stairs :level &quot;1_1&quot;))"/>
+    <property name="object">((:character :speed 50.0)
+ (:animation-state :sprite :orc)
+ (:sprite-sheet)
+ (:size)
+ (:ai :notice-range 152000.0
+      :attack-range 1000.0))</property>
    </properties>
    <point/>
   </object>
-  <object id="7" name="WakeUP" x="105" y="77">
+  <object id="11" name="Free" x="112.166" y="83.2643">
    <properties>
-    <property name="object">((:ui :r 28 :g 83 :b 147 :text
-&quot;I need to wake up...
-
+    <property name="object">((:ui  :r 147 :g 56 :b 28 :text
+&quot;It realy feel`s like their`s regular game
+Even tileset still the same from the last title
+&quot;))</property>
+   </properties>
+   <point/>
+  </object>
+  <object id="12" name="IamHero" x="266.996" y="82.5762">
+   <properties>
+    <property name="object">((:ui  :r 147 :g 56 :b 28 :text
+&quot;So metaphorical to drop the key just after it ment to be used
 
 &quot;))</property>
    </properties>
    <point/>
   </object>
-  <object id="10" name="Player" x="37" y="62">
+  <object id="13" name="HopeMyMenStillAlive" x="458.298" y="92.2101">
+   <properties>
+    <property name="object">((:ui  :r 147 :g 56 :b 28 :text
+&quot;As we all know 3D modeller has quit LL couple of months ago
+So there will be no any complex bodies in this game.
+Maybe they will make some dls next year.
+&quot;))</property>
+   </properties>
+   <point/>
+  </object>
+  <object id="14" name="ThereIsAnExit" x="423.891" y="306.908">
+   <properties>
+    <property name="object">((:ui  :r 147 :g 56 :b 28 :text
+&quot;Gameplay is very straightforward.
+And I don`t realy like it very much.
+
+&quot;))</property>
+   </properties>
+   <point/>
+  </object>
+  <object id="15" name="Player" x="38.5356" y="69.5016">
    <properties>
     <property name="object">((:player)
  (:character :speed 75.0)
  (:animation-state :sprite :player)
  (:sprite-sheet)
  (:size))</property>
+   </properties>
+   <point/>
+  </object>
+  <object id="16" name="PART3" x="44.7288" y="72.9423">
+   <properties>
+    <property name="object">((:ui  :r 147 :g 56 :b 28 :text
+&quot;PART 2
+In the beginning of the day. Philosopher`s morning
+
+&quot;))</property>
    </properties>
    <point/>
   </object>

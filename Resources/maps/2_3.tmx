@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.8" tiledversion="1.8.6" orientation="orthogonal" renderorder="right-down" width="40" height="23" tilewidth="16" tileheight="16" infinite="0" nextlayerid="8" nextobjectid="11">
+<map version="1.8" tiledversion="1.8.6" orientation="orthogonal" renderorder="right-down" width="40" height="23" tilewidth="16" tileheight="16" infinite="0" nextlayerid="8" nextobjectid="12">
  <tileset firstgid="1" name="Dungeon tiles" tilewidth="16" tileheight="16" tilecount="625" columns="25">
   <image source="../images/Environment/Dungeon Prison/Assets/Tiles.png" width="400" height="400"/>
   <tile id="0">
@@ -233,12 +233,12 @@
  </tileset>
  <layer id="1" name="floor" width="40" height="23">
   <data encoding="base64" compression="zlib">
-   eJztj0EOQEAQBGc3wQdwxC/w/5tn4BdItIOEOa4Rm+hK6tqpFiFPSWCqzD4tulPBWtkE7Jw/B2f70arv2BnRNsHZhW283bega4VbpH25Fylg6ePra2F3sTfq07uW24QQQgghf2MHJNENtA==
+   eJzt07ENwCAMRFGbGRJa9p8ra6SgcGgoiBSQ8pHuS9dar7HZmko3WvJ9q3fRnPLNRfe1qK6WfHNRfG//8Pe/yCeffPv6RhEMo+i+y2PUbo8RO5LZ+SyndXcrX8YZbw==
   </data>
  </layer>
  <layer id="2" name="walls" width="40" height="23">
   <data encoding="base64" compression="zlib">
-   eJztzsEJgEAQxdDfoG2IlqFlrK1scTvgwQJyGSEPcs+RZG/aWV15zfRz5/vryD/GP8Y/xj/GP8Y/xj/GP8Y/5g9/o9qa9lQLoiUylA==
+   eJztlkEKwjAQRTtew2t4jOoVtAtRb6BdSPUG2oWoN9Ae0hmSQBwmCo5NBPPhL5o/lAeB+SmKz7VED9ALIZvbbKX4v1Y79BDdCNnWZvuYQEzEN0Kfhexks9R875T5wsp8Ol3QY/REyEqbXSPy0L6bgdlrzhWE91/FZqfQ7z6k+9yA2WvONYT3X81m19DvfRPfEcxec24hvP9aNnuIwHeH57MOxFExu0Xg0yrz6ZT5dPpnPtdnkv2OK1/Mxew7J+o9v+Oo21K+67no3hvvm7ot5buFi/j8jqNu+zU+rm/xPQCJyDBg
   </data>
  </layer>
  <layer id="4" name="doors" width="40" height="23">
@@ -248,43 +248,87 @@
  </layer>
  <layer id="3" name="props" width="40" height="23">
   <data encoding="base64" compression="zlib">
-   eJztzmERABAMgNGdFSAGMYhBJZ2tgL+2O99L8ETwg6wiRb0Xd9VuLfCv220E/k27rcC/nbwHAAAAeOEAi60CWA==
+   eJxjYBgFAwmWMDMwLGUmXpzeYC/QDfuwuAOX+ChABcVMA+0C/KBnkLtvFJAG5kHzZA0TKp9StdQC24F2lABxKRCXMUP41FBLTdALtKcPiPuJsI8UtaNgFIyCUTAKqA8WMGNnDxawkxk7e7gDADwBFgA=
   </data>
  </layer>
  <objectgroup id="5" name="objects">
-  <object id="3" name="Tip" x="50.6373" y="65.521">
+  <object id="3" name="ReadyToGo" x="310.951" y="65.1436">
    <properties>
-    <property name="object">((:ui :r 255 :g 255 :b 255 :text
-&quot;Use WASD to move around
-Follow green light
-Press Space to continue
-&quot;))</property>
-   </properties>
-   <point/>
-  </object>
-  <object id="6" name="win" x="334.75" y="81.5587">
-   <properties>
-    <property name="object" value="((:stairs :level &quot;1_1&quot;))"/>
-   </properties>
-   <point/>
-  </object>
-  <object id="7" name="WakeUP" x="105" y="77">
-   <properties>
-    <property name="object">((:ui :r 28 :g 83 :b 147 :text
-&quot;I need to wake up...
-
+    <property name="object">((:ui  :r 90 :g 135 :b 24 :text
+&quot;Final stage!
+I almost done here
 
 &quot;))</property>
    </properties>
    <point/>
   </object>
-  <object id="10" name="Player" x="37" y="62">
+  <object id="4" name="orc" x="211.595" y="196.595">
+   <properties>
+    <property name="object">((:character :speed 65.0)
+ (:animation-state :sprite :orc)
+ (:sprite-sheet)
+ (:size)
+ (:ai :notice-range 40000.0
+      :attack-range 1000.0))</property>
+   </properties>
+   <point/>
+  </object>
+  <object id="6" name="win" x="312.876" y="341.153">
+   <properties>
+    <property name="object" value="((:stairs :level &quot;3_1&quot;))"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="7" name="orc" x="418.386" y="198.183">
+   <properties>
+    <property name="object">((:character :speed 65.0)
+ (:animation-state :sprite :orc)
+ (:sprite-sheet)
+ (:size)
+ (:ai :notice-range 40000.0
+      :attack-range 1000.0))</property>
+   </properties>
+   <point/>
+  </object>
+  <object id="8" name="orc" x="419.762" y="261.491">
+   <properties>
+    <property name="object">((:character :speed 75.0)
+ (:animation-state :sprite :orc)
+ (:sprite-sheet)
+ (:size)
+ (:ai :notice-range 40000.0
+      :attack-range 1000.0))</property>
+   </properties>
+   <point/>
+  </object>
+  <object id="9" name="orc" x="211.946" y="260.803">
+   <properties>
+    <property name="object">((:character :speed 75.0)
+ (:animation-state :sprite :orc)
+ (:sprite-sheet)
+ (:size)
+ (:ai :notice-range 40000.0
+      :attack-range 1000.0))</property>
+   </properties>
+   <point/>
+  </object>
+  <object id="10" name="Player" x="306.908" y="35.783">
    <properties>
     <property name="object">((:player)
  (:character :speed 75.0)
  (:animation-state :sprite :player)
  (:sprite-sheet)
  (:size))</property>
+   </properties>
+   <point/>
+  </object>
+  <object id="11" name="Freedom" x="312.413" y="117.671">
+   <properties>
+    <property name="object">((:ui  :r 90 :g 135 :b 24 :text
+&quot;Knock! Knock! Knock!
+\&quot;OpenUP! It`s Black Jackets!\&quot;
+Oh, crap...
+&quot;))</property>
    </properties>
    <point/>
   </object>

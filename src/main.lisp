@@ -1,4 +1,4 @@
-(in-package #:lisp-jam-spring-2023)
+(in-package #:thoughtbound)
 
 
 (declaim (type fixnum *fps*))
@@ -43,7 +43,7 @@
                           (with-output-to-string (s)
                             (uiop:print-condition-backtrace e :stream s))
                           (cffi:null-pointer) :error)))))
-    (al:set-app-name "lisp-jam-spring-2023")
+    (al:set-app-name "thoughtbound")
     (let ((config (al:load-config-file +config-path+)))
       (unless (cffi:null-pointer-p config)
         (al:merge-config-into (al:get-system-config) config)))
@@ -70,7 +70,7 @@
       (when (cffi:null-pointer-p display)
         (error "Initializing display failed"))
       (al:inhibit-screensaver t)
-      (al:set-window-title display "Lisp Jam Spring 2023")
+      (al:set-window-title display "Thoughtbound")
       (al:register-event-source event-queue
                                 (al:get-display-event-source display))
       (al:install-keyboard)

@@ -1,4 +1,4 @@
-* Lisp Jam Spring 2023
+* Thoughtbound
 
 ** Installation
 

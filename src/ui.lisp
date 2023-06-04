@@ -1,4 +1,4 @@
-(in-package #:lisp-jam-spring-2023)
+(in-package #:thoughtbound)
 
 
 (ecs:defcomponent ui

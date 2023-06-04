@@ -12,14 +12,14 @@ export VERSION=${GITHUB_REF_NAME:-$(git describe --always --tags --dirty=+ --abb
 case $1 in
     linux)
         sbcl --dynamic-space-size 2048 --disable-debugger --quit --load package/build.lisp
-        linuxdeploy --appimage-extract-and-run --executable=bin/lisp-jam-spring-2023 \
+        linuxdeploy --appimage-extract-and-run --executable=bin/thoughtbound \
                     --custom-apprun=package/AppRun \
                     --icon-file=package/icon.png \
-                    --desktop-file=package/lisp-jam-spring-2023.desktop \
+                    --desktop-file=package/thoughtbound.desktop \
                     --appdir=appimage $(find bin -name "lib*" -printf "-l%p ")
-        cp bin/lisp-jam-spring-2023 appimage/usr/bin
+        cp bin/thoughtbound appimage/usr/bin
         cp -R Resources appimage/usr
-        appimagetool --appimage-extract-and-run --comp xz -g appimage "lisp-jam-spring-2023-${VERSION}.AppImage"
+        appimagetool --appimage-extract-and-run --comp xz -g appimage "thoughtbound-${VERSION}.AppImage"
         ;;
 
     windows)

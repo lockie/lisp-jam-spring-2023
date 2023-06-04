@@ -1,4 +1,4 @@
-(in-package #:lisp-jam-spring-2023)
+(in-package #:thoughtbound)
 
 (define-constant +window-width+ 1280)
 (define-constant +window-height+ 720)

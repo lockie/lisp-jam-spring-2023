@@ -3,8 +3,8 @@
 !system 'convert icon.png -define icon:auto-resize=16,32,48,64,256 %TEMP%/icon.ico'
 !system 'convert -resize 150x57 -extent 150x57 -gravity center -background white -alpha remove -alpha off icon.png BMP2:%TEMP%/icon.bmp'
 
-!define MUI_PRODUCT "Lisp Jam Spring 2023"
-!define MUI_FILE "lisp-jam-spring-2023"
+!define MUI_PRODUCT "Thoughtbound"
+!define MUI_FILE "thoughtbound"
 !define MUI_VERSION $%VERSION%
 !define MUI_ABORTWARNING
 !define MUI_ICON "$%TEMP%\icon.ico"
@@ -13,8 +13,8 @@
 !define MUI_HEADERIMAGE_RIGHT
 !define MUI_HEADERIMAGE_UNBITMAP "$%TEMP%\icon.bmp"
 
-Name "Lisp Jam Spring 2023"
-OutFile "../lisp-jam-spring-2023-${MUI_VERSION}-setup.exe"
+Name "Thoughtbound"
+OutFile "../thoughtbound-${MUI_VERSION}-setup.exe"
 
 ;Default installation folder
 InstallDir "$LOCALAPPDATA\Programs\${MUI_PRODUCT}"

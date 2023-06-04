@@ -1,4 +1,4 @@
-(defpackage #:lisp-jam-spring-2023
+(defpackage #:thoughtbound
   (:use #:cl)
   (:nicknames #:game)
   (:local-nicknames (#:tiled #:cl-tiled))

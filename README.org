@@ -24,8 +24,8 @@ To run manually:
   #+end_src
 + Run SBCL from =src= subdirectory and start the game:
   #+begin_src lisp
-    (ql:quickload :lisp-jam-spring-2023)
-    (lisp-jam-spring-2023:main
+    (ql:quickload :thoughtbound)
+    (thoughtbound:main)
   #+end_src
 
 ** System requirements

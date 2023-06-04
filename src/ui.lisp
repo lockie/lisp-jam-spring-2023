@@ -2,7 +2,7 @@
 
 
 (ecs:defcomponent ui
-  (active t :type boolean :index active-ui)
+  (active nil :type boolean :index active-ui)
   (text "" :type string :documentation "Text, 4 rows by 94 chars max"))
 
 (define-constant +window-background-path+ "../Resources/images/window.png"
@@ -46,7 +46,8 @@
         (when (or (plusp (nk:button-label *ui-context* "Continue"))
                   (al:with-current-keyboard-state keyboard-state
                     (al:key-down keyboard-state :space)))
-          (setf ui-active nil))
+          ;; HACK: update index
+          (setf (ui-active-aref *storage* entity) nil))
         (nk:layout-space-end *ui-context*))
       (nk:end *ui-context*))))
 
@@ -98,5 +99,6 @@
         (values x y))
     (when (< (distance position-x position-y player-x player-y)
              +lore-position-threshold+)
-      (setf ui-active t)
+      ;; HACK: update index
+      (setf (ui-active-aref *storage* entity) t)
       (delete-position *storage* entity))))

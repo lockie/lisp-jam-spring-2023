@@ -117,6 +117,7 @@
              (load-sounds)
              (load-map "../Resources/maps/test.tmx")
              (ecs:run-systems *storage* :dt 0d0) ;; HACK: prime system bitmaps
+             ;; TODO : create player object last (render order purposes)
              (let ((player (ecs:make-object
                             *storage*
                             `((:player)
@@ -126,22 +127,10 @@
                               (:animation-state :sprite :player)
                               (:sprite-sheet)
                               (:size)
-                              (:position :x 160.0 :y 160.0))))
-                   (orc (ecs:make-object
-                         *storage*
-                         `((:character :speed 50.0
-                                       :target-x 300.0
-                                       :target-y 300.0)
-                           (:animation-state :sprite :orc)
-                           (:sprite-sheet)
-                           (:size)
-                           (:ai :notice-range 20000.0
-                                :attack-range 1000.0)
-                           (:position :x 300.0 :y 300.0)))))
+                              (:position :x 160.0 :y 160.0)))))
                (change-animation *storage* player :idle)
                (setf *player-entity* player
-                     *deathp* nil)
-               (change-animation *storage* orc :move))
+                     *deathp* nil))
              (livesupport:setup-lisp-repl)
              (trivial-garbage:gc :full t)
              (loop :named event-loop

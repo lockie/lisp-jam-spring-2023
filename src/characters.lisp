@@ -8,8 +8,8 @@
 
 (ecs:defcomponent character
   (speed 0.0 :type single-float)
-  (target-x 0.0 :type single-float)
-  (target-y 0.0 :type single-float))
+  (target-x -1.0 :type single-float)
+  (target-y -1.0 :type single-float))
 
 (declaim (inline tile-start))
 (defun tile-start (x y)
@@ -58,6 +58,10 @@
   (:components-rw (position character size)
    :arguments ((:dt double-float)))
   (unless *deathp*
+    (when (or (minusp character-target-x)
+              (minusp character-target-y))
+      (setf character-target-x position-x
+            character-target-y position-y))
     (if (and (approx-equal position-x character-target-x)
              (approx-equal position-y character-target-y))
         (change-animation

@@ -3,7 +3,10 @@
 
 (ecs:defcomponent ui
   (active nil :type boolean :index active-ui)
-  (text "" :type string :documentation "Text, 4 rows by 94 chars max"))
+  (text "" :type string :documentation "Text, 4 rows by 94 chars max")
+  (r 0 :type (unsigned-byte 8))
+  (g 0 :type (unsigned-byte 8))
+  (b 0 :type (unsigned-byte 8)))
 
 (define-constant +window-background-path+ "../Resources/images/window.png"
   :test #'string=)
@@ -21,36 +24,38 @@
              (not *deathp*)
              (not *restart*)
              ui-active)
-    (nk:with-styles *ui-context*
-        ((:item nk:+style-window-fixed-background+
-                (nk:style-item-image *window-background*))
-         (:item nk:+style-button-normal+
-                (nk:style-item-image *button-background*))
-         (:item nk:+style-button-hover+
-                (nk:style-item-image *button-background*))
-         (:item nk:+style-button-active+
-                (nk:style-item-image *button-background2*)))
-      (when (plusp
-             (nk:begin
-              *ui-context* (format nil "text ~a" entity)
-              '(nk::x 5f0 nk::y 445f0 nk::w 1270f0 nk::h 270f0) 0))
-        (nk:layout-row-static *ui-context* 64f0 1250 1)
-        (nk:layout-space-begin *ui-context* 1 28f0 1)
-        ;; HACK: nk:label-wrap is very slow for some reason, hence this
-        (loop :for s :in (uiop:split-string ui-text :separator '(#\newline)
-                                                    :max 4)
-              :do (nk:layout-space-push
-                   *ui-context* '(nk::x 66f0 nk::y 0f0 nk::w 1120f0 nk::h 30f0))
-                  (nk:label *ui-context* s 17))
-        (nk:layout-space-push *ui-context*
-                              '(nk::x 1000f0 nk::y 2f0 nk::w 180f0 nk::h 36f0))
-        (when (or (plusp (nk:button-label *ui-context* "Continue"))
-                  (al:with-current-keyboard-state keyboard-state
-                    (al:key-down keyboard-state :space)))
-          ;; HACK: update index
-          (setf (ui-active-aref *storage* entity) nil))
-        (nk:layout-space-end *ui-context*))
-      (nk:end *ui-context*))))
+    (nk:with-color (text-color :r ui-r :g ui-g :b ui-b :a 255)
+      (nk:with-styles *ui-context*
+          ((:item nk:+style-window-fixed-background+
+                  (nk:style-item-image *window-background*))
+           (:item nk:+style-button-normal+
+                  (nk:style-item-image *button-background*))
+           (:item nk:+style-button-hover+
+                  (nk:style-item-image *button-background*))
+           (:item nk:+style-button-active+
+                  (nk:style-item-image *button-background2*))
+           (:color nk:+style-text-color+ text-color))
+        (when (plusp
+               (nk:begin
+                *ui-context* (format nil "text ~a" entity)
+                '(nk::x 5f0 nk::y 445f0 nk::w 1270f0 nk::h 270f0) 0))
+          (nk:layout-row-static *ui-context* 64f0 1250 1)
+          (nk:layout-space-begin *ui-context* 1 28f0 1)
+          ;; HACK: nk:label-wrap is very slow for some reason, hence this
+          (loop :for s :in (uiop:split-string ui-text :separator '(#\newline)
+                                                      :max 4)
+                :do (nk:layout-space-push
+                     *ui-context* '(nk::x 66f0 nk::y 0f0 nk::w 1120f0 nk::h 30f0))
+                    (nk:label *ui-context* s 17))
+          (nk:layout-space-push *ui-context*
+                                '(nk::x 1000f0 nk::y 2f0 nk::w 180f0 nk::h 36f0))
+          (when (or (plusp (nk:button-label *ui-context* "Continue"))
+                    (al:with-current-keyboard-state keyboard-state
+                      (al:key-down keyboard-state :space)))
+            ;; HACK: update index
+            (setf (ui-active-aref *storage* entity) nil))
+          (nk:layout-space-end *ui-context*))
+        (nk:end *ui-context*)))))
 
 (ecs:defsystem you-died
   (:components-ro (player))

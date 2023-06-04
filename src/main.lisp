@@ -135,6 +135,7 @@
                        (al:flip-display)
                    :finally
                       (nk:allegro-shutdown)
+                      (setf *ui-context* (cffi:null-pointer))
                       (nk:allegro-del-image *button-background2*)
                       (nk:allegro-del-image *button-background*)
                       (nk:allegro-del-image *window-background*)

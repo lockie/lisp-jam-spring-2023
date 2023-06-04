@@ -38,9 +38,6 @@
   (when *fpsp*
     (al:draw-text *font* (al:map-rgba 255 255 255 0) 0 0 0
                   (format nil "~d FPS" *fps*)))
-  
-
-  ;; TODO : put your drawing code here
   )
 
 (cffi:defcallback %main :int ((argc :int) (argv :pointer))

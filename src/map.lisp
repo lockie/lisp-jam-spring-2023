@@ -1,7 +1,5 @@
 (in-package #:lisp-jam-spring-2023)
 
-;; TODO I need some kind of spatial 2D index of sorts. calculate some kind of
-;; hash for position, x|y, and set as :INDEX field in POSITION?
 
 (ecs:defcomponent tile
   (obstaclep 0 :type bit))

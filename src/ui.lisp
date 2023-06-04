@@ -17,7 +17,8 @@
 
 (ecs:defsystem ui
   (:components-rw (ui))
-  (when (plusp ui-active)
+  (when (and (not (cffi:null-pointer-p *ui-context*))
+             (plusp ui-active))
     (nk:with-styles *ui-context*
         ((:item nk:+style-window-fixed-background+
                 (nk:style-item-image *window-background*))

@@ -32,6 +32,6 @@
 
 (defvar *ui-font*)
 
-(defvar *ui-context*)
+(defvar *ui-context* (cffi:null-pointer))
 
 (defvar *quit*)

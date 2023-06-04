@@ -81,10 +81,7 @@
                                      +button-background-path+)
                    *button-background2*
                    (al:ensure-loaded #'nk:allegro-create-image
-                                     +button-background2-path+)
-                   *ui-context*
-                   (nk:allegro-init
-                    *ui-font* display +window-width+ +window-height+))
+                                     +button-background2-path+))
              (setf *storage* (ecs:make-storage))
              (load-sprites)
              (load-sounds)
@@ -104,6 +101,9 @@
                (setf *player-entity* player
                      *deathp* nil))
              (ecs:run-systems *storage* :dt 0d0) ;; HACK: prime system bitmaps
+             (setf *ui-context*
+                   (nk:allegro-init
+                    *ui-font* display +window-width+ +window-height+))
              (livesupport:setup-lisp-repl)
              (trivial-garbage:gc :full t)
              (loop :named event-loop

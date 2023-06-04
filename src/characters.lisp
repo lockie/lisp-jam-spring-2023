@@ -1,7 +1,8 @@
 (in-package #:lisp-jam-spring-2023)
 
 
-(ecs:defcomponent player)
+(ecs:defcomponent player
+  (player 1 :type bit :index player :unique t))
 
 (ecs:defcomponent character
   (speed 0.0 :type single-float)

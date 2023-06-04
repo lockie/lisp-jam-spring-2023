@@ -87,19 +87,8 @@
              (load-sounds)
              (load-map "../Resources/maps/test.tmx")
              ;; TODO : create player object last (render order purposes)
-             (let ((player (ecs:make-object
-                            *storage*
-                            `((:player)
-                              (:character :speed 75.0
-                                          :target-x 160.0
-                                          :target-y 160.0)
-                              (:animation-state :sprite :player)
-                              (:sprite-sheet)
-                              (:size)
-                              (:position :x 160.0 :y 160.0)))))
-               (change-animation *storage* player :idle)
-               (setf *player-entity* player
-                     *deathp* nil))
+             (setf *player-entity* (player-entity *storage* 1)
+                   *deathp* nil)
              (ecs:run-systems *storage* :dt 0d0) ;; HACK: prime system bitmaps
              (setf *ui-context*
                    (nk:allegro-init

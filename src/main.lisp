@@ -1,30 +1,6 @@
 (in-package #:lisp-jam-spring-2023)
 
 
-(define-constant +window-width+ 1280)
-(define-constant +window-height+ 720)
-
-(define-constant +repl-update-interval+ 0.1d0)
-
-(define-constant +font-path+ "../Resources/fonts/inconsolata.ttf"
-  :test #'string=)
-(define-constant +font-size+ 24)
-(define-constant +ui-font-path+ "../Resources/fonts/bookxel.otf"
-  :test #'string=)
-(define-constant +ui-font-size+ 32)
-
-(define-constant +config-path+ "../config.cfg"
-  :test #'string=)
-
-(declaim (type ecs::storage *storage*))
-(defvar *storage*)
-
-(declaim (type ecs::entity *player-entity*))
-(defvar *player-entity*)
-
-(declaim (type boolean *deathp*))
-(defvar *deathp* nil)
-
 (declaim (type fixnum *fps*))
 (defvar *fps* 0)
 (defvar *fpsp*)
@@ -36,9 +12,6 @@
   (ecs:run-systems *storage* :dt dt))
 
 (defvar *font*)
-(defvar *ui-font*)
-
-(defvar *ui-context*)
 
 (defun render ()
   (when *fpsp*
@@ -116,7 +89,6 @@
              (load-sprites)
              (load-sounds)
              (load-map "../Resources/maps/test.tmx")
-             (ecs:run-systems *storage* :dt 0d0) ;; HACK: prime system bitmaps
              ;; TODO : create player object last (render order purposes)
              (let ((player (ecs:make-object
                             *storage*
@@ -131,6 +103,7 @@
                (change-animation *storage* player :idle)
                (setf *player-entity* player
                      *deathp* nil))
+             (ecs:run-systems *storage* :dt 0d0) ;; HACK: prime system bitmaps
              (livesupport:setup-lisp-repl)
              (trivial-garbage:gc :full t)
              (loop :named event-loop

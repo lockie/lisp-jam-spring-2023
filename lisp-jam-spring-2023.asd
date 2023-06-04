@@ -12,6 +12,7 @@
   :components ((:module "src"
                 :components
                 ((:file "package")
+                 (:file "globals")
                  (:file "sprites")
                  (:file "map")
                  (:file "characters")

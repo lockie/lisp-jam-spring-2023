@@ -1,9 +1,6 @@
 (in-package #:lisp-jam-spring-2023)
 
 
-(define-constant +tile-size+ 16)
-(define-constant +scaled-tile-size+ (* +scale+ +tile-size+))
-
 (ecs:defcomponent player)
 
 (ecs:defcomponent character

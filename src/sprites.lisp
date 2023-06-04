@@ -1,7 +1,5 @@
 (in-package #:lisp-jam-spring-2023)
 
-(declaim (type single-float +scale+))
-(define-constant +scale+ 2.0)
 
 (ecs:defcomponent position
   "The object position in pixels."

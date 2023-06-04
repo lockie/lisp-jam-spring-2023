@@ -9,6 +9,9 @@
 (define-constant +font-path+ "../Resources/fonts/inconsolata.ttf"
   :test #'string=)
 (define-constant +font-size+ 24)
+(define-constant +ui-font-path+ "../Resources/fonts/bookxel.otf"
+  :test #'string=)
+(define-constant +ui-font-size+ 32)
 
 (define-constant +config-path+ "../config.cfg"
   :test #'string=)
@@ -33,12 +36,15 @@
   (ecs:run-systems *storage* :dt dt))
 
 (defvar *font*)
+(defvar *ui-font*)
+
+(defvar *ui-context*)
 
 (defun render ()
   (when *fpsp*
     (al:draw-text *font* (al:map-rgba 255 255 255 0) 0 0 0
                   (format nil "~d FPS" *fps*)))
-  )
+  (nk:allegro-render))
 
 (cffi:defcallback %main :int ((argc :int) (argv :pointer))
   (declare (ignore argc argv))
@@ -58,6 +64,8 @@
                                       "game" "show-fps"))
     (unless (al:init)
       (error "Initializing liballegro failed"))
+    (unless (al:init-primitives-addon)
+      (error "Initializing primitives addon failed"))
     (unless (al:init-image-addon)
       (error "Initializing image addon failed"))
     (unless (al:init-font-addon)
@@ -86,6 +94,24 @@
                                 (al:get-mouse-event-source))
       (unwind-protect
            (cffi:with-foreign-object (event '(:union al:event))
+             (setf *font*
+                   (al:ensure-loaded #'al:load-ttf-font
+                                     +font-path+ (- +font-size+) 0)
+                   *ui-font*
+                   (al:ensure-loaded #'nk:allegro-font-create-from-file
+                                     +ui-font-path+ (- +ui-font-size+) 0)
+                   *window-background*
+                   (al:ensure-loaded #'nk:allegro-create-image
+                                     +window-background-path+)
+                   *button-background*
+                   (al:ensure-loaded #'nk:allegro-create-image
+                                     +button-background-path+)
+                   *button-background2*
+                   (al:ensure-loaded #'nk:allegro-create-image
+                                     +button-background2-path+)
+                   *ui-context*
+                   (nk:allegro-init
+                    *ui-font* display +window-width+ +window-height+))
              (setf *storage* (ecs:make-storage))
              (load-sprites)
              (load-sounds)
@@ -119,16 +145,17 @@
              (livesupport:setup-lisp-repl)
              (trivial-garbage:gc :full t)
              (loop :named event-loop
-                   :with *font* := (al:load-ttf-font +font-path+
-                                                     (- +font-size+) 0)
                    :with ticks :of-type double-float := (al:get-time)
                    :with last-repl-update :of-type double-float := ticks
                    :with dt :of-type double-float := 0d0
-                   :while (loop :while (al:get-next-event event-queue event)
+                   :while (loop :initially (nk:input-begin *ui-context*)
+                                :while (al:get-next-event event-queue event)
                                 :for type :=
                                           (cffi:foreign-slot-value
                                            event '(:union al:event) 'al::type)
-                                :always (not (eq type :display-close)))
+                                :do (nk:allegro-handle-event event)
+                                :always (not (eq type :display-close))
+                                :finally (nk:input-end *ui-context*))
                    :do (let ((new-ticks (al:get-time)))
                          (setf dt (- new-ticks ticks)
                                ticks new-ticks))
@@ -141,7 +168,13 @@
                          (update dt)
                          (render))
                        (al:flip-display)
-                   :finally (al:destroy-font *font*)))
+                   :finally
+                      (nk:allegro-shutdown)
+                      (nk:allegro-del-image *button-background2*)
+                      (nk:allegro-del-image *button-background*)
+                      (nk:allegro-del-image *window-background*)
+                      (nk:allegro-font-del *ui-font*)
+                      (al:destroy-font *font*)))
         (al:inhibit-screensaver nil)
         (al:destroy-event-queue event-queue)
         (al:destroy-display display)

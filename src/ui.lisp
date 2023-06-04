@@ -19,6 +19,7 @@
   (:components-rw (ui))
   (when (and (not (cffi:null-pointer-p *ui-context*))
              (not *deathp*)
+             (not *restart*)
              ui-active)
     (nk:with-styles *ui-context*
         ((:item nk:+style-window-fixed-background+

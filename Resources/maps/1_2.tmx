@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.10" tiledversion="1.10.1" orientation="orthogonal" renderorder="right-down" width="40" height="23" tilewidth="16" tileheight="16" infinite="0" nextlayerid="9" nextobjectid="13">
+ <tileset firstgid="1" name="Dungeon tiles" tilewidth="16" tileheight="16" tilecount="625" columns="25">
+  <image source="../images/Environment/Dungeon Prison/Assets/Tiles.png" width="400" height="400"/>
+  <tile id="0">
+   <properties>
+    <property name="obstacle" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="1">
+   <properties>
+    <property name="obstacle" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="2">
+   <properties>
+    <property name="obstacle" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="3">
+   <properties>
+    <property name="obstacle" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="25">
+   <properties>
+    <property name="obstacle" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="26">
+   <properties>
+    <property name="obstacle" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="27">
+   <properties>
+    <property name="obstacle" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="28">
+   <properties>
+    <property name="obstacle" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="50">
+   <properties>
+    <property name="obstacle" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="51">
+   <properties>
+    <property name="obstacle" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="52">
+   <properties>
+    <property name="obstacle" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="53">
+   <properties>
+    <property name="obstacle" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="75">
+   <properties>
+    <property name="obstacle" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="76">
+   <properties>
+    <property name="obstacle" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="77">
+   <properties>
+    <property name="obstacle" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="100">
+   <properties>
+    <property name="obstacle" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="101">
+   <properties>
+    <property name="obstacle" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="102">
+   <properties>
+    <property name="obstacle" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="103">
+   <properties>
+    <property name="obstacle" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="104">
+   <properties>
+    <property name="obstacle" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="109">
+   <properties>
+    <property name="obstacle" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="125">
+   <properties>
+    <property name="obstacle" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="126">
+   <properties>
+    <property name="obstacle" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="127">
+   <properties>
+    <property name="obstacle" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="128">
+   <properties>
+    <property name="obstacle" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="129">
+   <properties>
+    <property name="obstacle" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="134">
+   <properties>
+    <property name="obstacle" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="150">
+   <properties>
+    <property name="obstacle" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="151">
+   <properties>
+    <property name="obstacle" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="152">
+   <properties>
+    <property name="obstacle" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="153">
+   <properties>
+    <property name="obstacle" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="154">
+   <properties>
+    <property name="obstacle" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="209">
+   <properties>
+    <property name="obstacle" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="234">
+   <properties>
+    <property name="obstacle" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="325">
+   <properties>
+    <property name="obstacle" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="326">
+   <properties>
+    <property name="obstacle" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="327">
+   <properties>
+    <property name="obstacle" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="328">
+   <properties>
+    <property name="obstacle" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="329">
+   <properties>
+    <property name="obstacle" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="450">
+   <properties>
+    <property name="obstacle" value="true"/>
+   </properties>
+  </tile>
+ </tileset>
+ <tileset firstgid="626" name="Dungeon props" tilewidth="16" tileheight="16" tilecount="625" columns="25">
+  <image source="../images/Environment/Dungeon Prison/Assets/Props.png" width="400" height="400"/>
+  <tile id="6">
+   <properties>
+    <property name="obstacle" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="7">
+   <properties>
+    <property name="obstacle" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="8">
+   <properties>
+    <property name="obstacle" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="107">
+   <properties>
+    <property name="obstacle" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="132">
+   <properties>
+    <property name="obstacle" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="157">
+   <properties>
+    <property name="obstacle" type="bool" value="true"/>
+   </properties>
+  </tile>
+ </tileset>
+ <layer id="1" name="floor" width="40" height="23">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFIwXII2Fc4qRiQvYQUk+J3bTAo+6jfnrA5lZq+YGQPaS4jxh30yo8Rt036r5R9+E2e7CCUfdRBoai+5DFHjEyMDwG4ieMlOUDWmAQ+A101x8g/jtI3SfCxMAgCsRiTAPvHlLLpoECg919yAAAgn41vg==
+  </data>
+ </layer>
+ <layer id="2" name="walls" width="40" height="23">
+  <data encoding="base64" compression="zlib">
+   eJztll8OwUAQxrs4hRKHQE/hzxHEg+AKHqRcwUODK3hyBRczGzvpdDJLp+tvYpJfxOzmm09jt18U3WoBGKAG1IGl0NdCdaISetJ+XJsDTSAGWsAMaLC+FtSpOS0+R9q/Zf5wLQW6QA/oA2ugzfpaUCd2WnyOtJ/7w7U962dAIvS1lTn9xDOHF/d3Mf694xBjFbU0/j5Rv+Zv6Bix/sDT1xbq+OY88od1YDpH198E+uPz7BzrsaP056tn+0PNv79y9fcXVtI86YzgOT8K++8VP9dafPP4M8TfgfkGswzNN42oWo7SgrmI+rM5Z2ryfINZhuab1FTLUVowF1F/NuesTJ5vMMtMCHtT/P4qEvdJ/dmcszPFfMP/u+c3vYt9WebE5mvP8rvrF/yF3B2vgOabb3x+9L61d+cVIkNdlA==
+  </data>
+ </layer>
+ <layer id="4" name="doors" width="40" height="23">
+  <data encoding="base64" compression="zlib">
+   eJztwTEBAAAAwqD1T20IX6AAAADgNw5gAAE=
+  </data>
+ </layer>
+ <layer id="3" name="props" width="40" height="23">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFtACrmGhn9hJmBoalzJg0KeAOFvfdBYqtAOKVTBA2sXLoYC/QLfuYMWlKwTegvQeB+BAThE2sHL3AqPsoA/zANHILaPdtJgibWLlRgB28HEThNJ2MNEWOHnLBBjLsIkXPMmBcLCczPn4D7fkDxH+BeAYBO4HyDcjqiQX7gW47QKb7RID6RIFYDIg3ErATKN+ArH4UjBywDpg21lOYp4uB+pdSsVxYxAzBC4H4ONDcExSa3QPUv4+K7tvNDMG7gPgB0NyHA1Q3j4JRQA4AAHP6RGc=
+  </data>
+ </layer>
+ <layer id="8" name="ontop" width="40" height="23">
+  <data encoding="base64" compression="zlib">
+   eJxjYBhaoJoJt9x8ZuxsQnLE2IPPXmQwBY+6HczY2YTkiLEHn73UAhOIcNdAgomDwH2rBoEbRsEoGO7AlJGBwYxxoF2BG/gB3eY/QO47BC2DDhMoi+QGcfiBwGB331AF89DSxQIi6yxi2k2kqMMFtqPp30mkecS0m0hRNwpGwSigDAAAsbQSyw==
+  </data>
+ </layer>
+ <objectgroup id="5" name="objects">
+  <object id="3" name="Next floor" x="59" y="79">
+   <properties>
+    <property name="object">((:ui :text
+&quot;One more floor
+Be carefull hero, no need to rush into the ambush.
+
+&quot;))</property>
+   </properties>
+   <point/>
+  </object>
+  <object id="4" name="orc" x="588.649" y="299.835">
+   <properties>
+    <property name="object">((:character :speed 65.0)
+ (:animation-state :sprite :orc)
+ (:sprite-sheet)
+ (:size)
+ (:ai :notice-range 40000.0
+      :attack-range 1000.0))</property>
+   </properties>
+   <point/>
+  </object>
+  <object id="6" name="win" x="14.8491" y="300.885">
+   <properties>
+    <property name="object" value="((:stairs :level &quot;1_3&quot;))"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="7" name="Starving" x="165.668" y="79.8982">
+   <properties>
+    <property name="object">((:ui :text
+&quot;Dinner room...
+Whole kingdom is starving for decades now
+Curse on the tyrany!
+&quot;))</property>
+   </properties>
+   <point/>
+  </object>
+  <object id="8" name="Drugs" x="248.491" y="148.786">
+   <properties>
+    <property name="object">((:ui :text
+&quot;Healing poitions only seems to be usefull
+Orc tyran`s shamans convert all of them in highly
+addictive drugs
+&quot;))</property>
+   </properties>
+   <point/>
+  </object>
+  <object id="9" name="Hope" x="407.203" y="80.5864">
+   <properties>
+    <property name="object">((:ui :text
+&quot;Every citizen dreams of a brighter future
+I can change everything and make the kingdom kind
+
+&quot;))</property>
+   </properties>
+   <point/>
+  </object>
+  <object id="10" name="StopMurders" x="500.65" y="177.668">
+   <properties>
+    <property name="object">((:ui :text
+&quot;Killings and kidnappings must be stopped
+
+
+&quot;))</property>
+   </properties>
+   <point/>
+  </object>
+  <object id="11" name="DontStop" x="57.6844" y="310.359">
+   <properties>
+    <property name="object">((:ui :text
+&quot;Almost there
+Do not stop! You are being chased!
+
+&quot;))</property>
+   </properties>
+   <point/>
+  </object>
+  <object id="12" name="Player" x="44" y="79">
+   <properties>
+    <property name="object">((:player)
+ (:character :speed 75.0)
+ (:animation-state :sprite :player)
+ (:sprite-sheet)
+ (:size))</property>
+   </properties>
+   <point/>
+  </object>
+ </objectgroup>
+</map>

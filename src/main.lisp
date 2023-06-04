@@ -19,11 +19,13 @@
                   (format nil "~d FPS" *fps*)))
   (nk:allegro-render))
 
-(defun load* ()
+(defun load* (map-name)
   (setf *storage* (ecs:make-storage))
   (load-sprites)
   (load-sounds)
-  (load-map "../Resources/maps/1_1.tmx")
+  (load-map (format nil "../Resources/maps/~a.tmx" (if (eq map-name t)
+                                                       "1_1"
+                                                       map-name)))
   ;; TODO : create player object last (render order purposes)
   (setf *player-entity* (player-entity *storage* 1)
         *deathp* nil)
@@ -93,7 +95,7 @@
                    *button-background2*
                    (al:ensure-loaded #'nk:allegro-create-image
                                      +button-background2-path+))
-             (load*)
+             (load* "1_0")
              (setf *ui-context*
                    (nk:allegro-init
                     *ui-font* display +window-width+ +window-height+))
@@ -116,7 +118,7 @@
                                  :always (not (eq type :display-close))
                                  :finally (nk:input-end *ui-context*)))
                    :do (when *restart*
-                         (load*)
+                         (load* *restart*)
                          (setf *restart* nil))
                        (let ((new-ticks (al:get-time)))
                          (setf dt (- new-ticks ticks)

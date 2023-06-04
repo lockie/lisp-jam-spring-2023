@@ -1,6 +1,6 @@
-(uiop:run-program "curl -kLOs https://gitlab.com/lockie/cl-fast-ecs/-/archive/724a/cl-fast-ecs-724a.zip")
+(uiop:run-program "curl -kLOs https://gitlab.com/lockie/cl-fast-ecs/-/archive/5d0e/cl-fast-ecs-5d0e.zip")
 (uiop:run-program
- (format nil "7z x -o~a cl-fast-ecs-724a.zip" (merge-pathnames
+ (format nil "7z x -o~a cl-fast-ecs-5d0e.zip" (merge-pathnames
                                                #P"quicklisp/local-projects/"
                                                (user-homedir-pathname))))
 (ql:update-all-dists :prompt nil)

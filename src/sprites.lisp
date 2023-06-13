@@ -1,13 +1,14 @@
 (in-package #:thoughtbound)
 
 
-(declaim (ftype (function (single-float single-float) fixnum) tile-index))
-(defun tile-index (x y)
-  (let ((x* (truncate x))
-        (y* (truncate y)))
-    ;; NOTE: negative map coords are not supported
-    (declare (type (integer 0 2147483647) x* y*))
-    (logior (ash x* 32) y*)))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (declaim (ftype (function (single-float single-float) fixnum) tile-index))
+  (defun tile-index (x y)
+    (let ((x* (truncate x))
+          (y* (truncate y)))
+      ;; NOTE: negative map coords are not supported
+      (declare (type (integer 0 2147483647) x* y*))
+      (logior (ash x* 32) y*))))
 
 (ecs:defcomponent position
   "The object position in pixels."

@@ -33,9 +33,7 @@
   (let ((music (ecs:make-entity *storage*)))
     (add-sound *storage* music :alone :oncep nil)
     (with-sound () *storage* music
-      (setf gain 0.05)))
-  ;; HACK: prime system bitmaps
-  (ecs:run-systems *storage* :dt 0d0))
+      (setf gain 0.05))))
 
 (cffi:defcallback %main :int ((argc :int) (argv :pointer))
   (declare (ignore argc argv))

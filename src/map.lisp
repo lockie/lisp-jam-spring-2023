@@ -6,8 +6,8 @@
 
 (ecs:defsystem render-tiles
   (:components-ro (position size sprite-sheet tile)
-   :pre (al:hold-bitmap-drawing t)
-   :post (al:hold-bitmap-drawing nil))
+   :initially (al:hold-bitmap-drawing t)
+   :finally (al:hold-bitmap-drawing nil))
   (al:draw-scaled-bitmap
    sprite-sheet-bitmap
    0.0 0.0
@@ -16,14 +16,6 @@
    (* +scale+ size-width)
    (* +scale+ size-height)
    0))
-
-(declaim (ftype (function (single-float single-float) fixnum) tile-index))
-(defun tile-index (x y)
-  (let ((x* (truncate x))
-        (y* (truncate y)))
-    ;; NOTE: negative map coords are not supported
-    (declare (type (integer 0 2147483647) x* y*))
-    (logior (ash x* 32) y*)))
 
 (defun load-map (filename)
   (let ((map (tiled:load-map filename))
@@ -62,8 +54,7 @@
               *storage*
               `((:sprite-sheet :bitmap ,(sprite-sheet-bitmap-aref *storage*
                                                                   tile-entity))
-                (:position :x ,x :y ,y
-                           :tile-index ,(tile-index x y))
+                (:position :x ,x :y ,y)
                 (:size :width ,(size-width-aref *storage* tile-entity)
                        :height ,(size-height-aref *storage* tile-entity))
                 (:tile :obstaclep

@@ -1,14 +1,23 @@
 (in-package #:thoughtbound)
 
 
+(declaim (ftype (function (single-float single-float) fixnum) tile-index))
+(defun tile-index (x y)
+  (let ((x* (truncate x))
+        (y* (truncate y)))
+    ;; NOTE: negative map coords are not supported
+    (declare (type (integer 0 2147483647) x* y*))
+    (logior (ash x* 32) y*)))
+
 (ecs:defcomponent position
   "The object position in pixels."
   (x 0.0 :type single-float
          :documentation "pre-scaled x position aka screen pixel coordinate")
   (y 0.0 :type single-float
          :documentation "pre-scaled y position aka screen pixel coordinate")
-  (tile-index 0 :type fixnum :index tile
-                :documentation "Tile index, for fast map tile lookups."))
+  (tile-index (tile-index x y)
+              :type fixnum :index tile
+              :documentation "Tile index, for fast map tile lookups."))
 
 (ecs:defcomponent sprite-sheet
   (bitmap (cffi:null-pointer) :type cffi:foreign-pointer))
@@ -49,8 +58,8 @@ like a prefab."
 
 (ecs:defsystem render-animation
   (:components-ro (position size sprite-sheet animation-state)
-   :pre (al:hold-bitmap-drawing t)
-   :post (al:hold-bitmap-drawing nil))
+   :initially (al:hold-bitmap-drawing t)
+   :finally (al:hold-bitmap-drawing nil))
   (al:draw-tinted-scaled-rotated-bitmap-region
    sprite-sheet-bitmap
    (+ animation-state-x
@@ -104,13 +113,8 @@ like a prefab."
                 y animation-y
                 nframes animation-nframes
                 speed animation-speed))
-        (with-size (animation-width animation-height) storage animation-entity
-          (with-size () storage entity
-            (setf width animation-width
-                  height animation-height)))
-        (with-sprite-sheet (animation-bitmap) storage animation-entity
-          (with-sprite-sheet () storage entity
-            (setf bitmap animation-bitmap))))))
+        (replace-size storage entity animation-entity)
+        (replace-sprite-sheet storage entity animation-entity))))
   nil)
 
 (cffi:defcallback load-sprite :int

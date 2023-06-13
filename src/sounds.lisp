@@ -41,22 +41,22 @@
 
 (ecs:defsystem position-sound
   (:components-rw (sound)
-   :components-ro (position))
-  (let ((x position-x)
-        (y position-y)
-        (px (position-x-aref *storage* *player-entity*))
-        (py (position-y-aref *storage* *player-entity*)))
-    (setf sound-gain
-          (clamp
-           (- 1.0 (* (distance px py x y)
-                     (/ +scale+ (* 0.5 +window-width+ +window-height+))))
-           0.0 1.0)
+   :components-ro (position)
+   :with ((player-x player-y)
+          :of-type (single-float single-float)
+          := (with-position () *storage* *player-entity*
+               (values x y))))
+  (setf sound-gain
+        (clamp
+         (- 1.0 (* (distance player-x player-y position-x position-y)
+                   (/ +scale+ (* 0.5 +window-width+ +window-height+))))
+         0.0 1.0)
 
-          sound-pan
-          (clamp
-           (* (- x px)
-              (/ +scale+ +window-width+))
-           -1.0 1.0))))
+        sound-pan
+        (clamp
+         (* (- position-x player-x)
+            (/ +scale+ +window-width+))
+         -1.0 1.0)))
 
 (defun add-sound (storage entity name &key (oncep t) (playingp t) throughp)
   (let ((sample-entity (sound-entity storage name)))
@@ -77,8 +77,8 @@
                   play-through (if throughp 1 0)
                   play-time 0d0)
             (al:attach-sample-instance-to-mixer instance (al:get-default-mixer))
-            (al:set-sample-instance-playmode instance
-                                             (if oncep :once :loop))))))))
+            (al:set-sample-instance-playmode instance (if oncep :once :loop))
+            nil))))))
 
 (cffi:defcallback load-sound :int
     ((file (:pointer (:struct al::fs-entry))) (data :pointer))

@@ -89,6 +89,7 @@ like a prefab."
            animation-state-speed)
     (multiple-value-bind (nframes rest-time)
         (floor animation-state-time animation-state-speed)
+      (declare (type non-negative-fixnum nframes))
       (setf animation-state-time rest-time)
       (incf animation-state-frame nframes)
       (when (>= animation-state-frame animation-state-nframes)
@@ -97,8 +98,8 @@ like a prefab."
                   (1- animation-state-nframes)
                   (rem animation-state-frame animation-state-nframes)))))))
 
-(defun change-animation (storage entity animation &key turn-left (cycle t))
-  (with-animation-state () storage entity
+(defun change-animation (entity animation &key turn-left (cycle t))
+  (with-animation-state () entity
     (setf left (if turn-left 1 0)
           repeat (if cycle 1 0))
     (unless (eq animation current)
@@ -106,16 +107,16 @@ like a prefab."
             frame 0
             time 0d0)
       (let* ((animation-name (format-symbol :keyword "~a-~a" sprite animation))
-             (animation-entity (animation-entity storage animation-name)))
+             (animation-entity (animation-entity animation-name)))
         (with-animation
             (_ animation-x animation-y animation-nframes animation-speed)
-            storage animation-entity
+            animation-entity
           (setf x animation-x
                 y animation-y
                 nframes animation-nframes
                 speed animation-speed))
-        (replace-size storage entity animation-entity)
-        (replace-sprite-sheet storage entity animation-entity))))
+        (replace-size entity animation-entity)
+        (replace-sprite-sheet entity animation-entity))))
   nil)
 
 (cffi:defcallback load-sprite :int
@@ -125,7 +126,7 @@ like a prefab."
                      (cffi:foreign-bitfield-value 'al::file-mode '(:isdir))))
       (with-open-file (stream (al::get-fs-entry-name file))
         (dolist (animation (eval (read stream)))
-          (ecs:make-object *storage* animation))
+          (ecs:make-object animation))
         (cffi:foreign-enum-value 'al::for-each-fs-entry-result :ok))
       (cffi:foreign-enum-value 'al::for-each-fs-entry-result :skip)))
 

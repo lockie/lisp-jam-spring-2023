@@ -14,7 +14,7 @@
    :enable (not *deathp*)
    :with ((player-x player-y)
           :of-type (single-float single-float)
-          := (with-position () *storage* *player-entity*
+          := (with-position () *player-entity*
                (values x y))))
   (let ((player-distance (distance position-x position-y
                                    player-x player-y)))
@@ -22,21 +22,21 @@
       (setf character-target-x player-x
             character-target-y player-y)
       (when (zerop ai-seen)
-        (add-sound *storage* entity :gotcha :throughp t)
+        (add-sound entity :gotcha :throughp t)
         (setf ai-seen 1)))
     (when (< player-distance ai-attack-range)
       (setf *deathp* t)
       (change-animation
-       *storage* entity :idle
-       :turn-left (plusp (animation-state-left-aref *storage* entity)))
-      (let ((old-width (size-width-aref *storage* *player-entity*)))
+       entity :idle
+       :turn-left (plusp (animation-state-left-aref entity)))
+      (let ((old-width (size-width-aref *player-entity*)))
         (change-animation
-         *storage* *player-entity* :death
+         *player-entity* :death
          :turn-left (plusp
-                     (animation-state-left-aref *storage* *player-entity*))
+                     (animation-state-left-aref *player-entity*))
          :cycle nil)
-        (let ((new-width (size-width-aref *storage* *player-entity*)))
+        (let ((new-width (size-width-aref *player-entity*)))
           ;; compensate for different sprite sizes
-          (decf (position-x-aref *storage* *player-entity*)
+          (decf (position-x-aref *player-entity*)
                 (- new-width old-width))))
-      (add-sound *storage* *player-entity* :death))))
+      (add-sound *player-entity* :death))))

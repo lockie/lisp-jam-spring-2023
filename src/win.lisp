@@ -7,7 +7,7 @@
    (:components-ro (win position)
     :with ((player-x player-y)
            :of-type (single-float single-float)
-           := (with-position () *storage* *player-entity*
+           := (with-position () *player-entity*
                 (values x y))))
    (when (< (distance player-x player-y
                       position-x position-y)
@@ -15,4 +15,5 @@
      (al:show-native-message-box (cffi:null-pointer)
                                  "You won!" "" "You've beat the game!"
                                  (cffi:null-pointer) 0)
-     (setf *quit* t)))
+     (setf *quit* t)
+     (loop-finish)))

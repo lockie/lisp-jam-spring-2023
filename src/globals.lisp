@@ -21,9 +21,6 @@
 (define-constant +config-path+ "../config.cfg"
   :test #'string=)
 
-(declaim (type ecs::storage *storage*))
-(defvar *storage*)
-
 (declaim (type ecs::entity *player-entity*))
 (defvar *player-entity*)
 

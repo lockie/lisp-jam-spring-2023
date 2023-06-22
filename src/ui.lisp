@@ -37,7 +37,7 @@
          (:color nk:+style-text-color+ text-color))
       (when (plusp
              (nk:begin
-              *ui-context* (format nil "text ~a" entity)
+              *ui-context* (write-to-string entity)
               '(nk::x 5f0 nk::y 445f0 nk::w 1270f0 nk::h 270f0) 0))
         (nk:layout-row-static *ui-context* 64f0 1250 1)
         (nk:layout-space-begin *ui-context* 1 28f0 1)
@@ -101,9 +101,9 @@
    :components-ro (position)
    :with ((player-x player-y)
           :of-type (single-float single-float)
-          := (with-position () *storage* *player-entity*
+          := (with-position () *player-entity*
                (values x y))))
   (when (< (distance position-x position-y player-x player-y)
            +lore-position-threshold+)
     (setf ui-active 1)
-    (delete-position *storage* entity)))
+    (delete-position entity)))

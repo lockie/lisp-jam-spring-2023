@@ -9,7 +9,7 @@
   (when *fpsp*
     (unless (zerop dt)
       (setf *fps* (round 1 dt))))
-  (ecs:run-systems *storage* :dt dt))
+  (ecs:run-systems :dt dt))
 
 (defvar *font*)
 
@@ -20,19 +20,19 @@
   (nk:allegro-render))
 
 (defun load* (map-name)
-  (setf *storage* (ecs:make-storage))
+  (ecs:bind-storage)
   (load-sprites)
   (load-sounds)
   (load-map (format nil "../Resources/maps/~a.tmx" (if (eq map-name t)
                                                        "1_1"
                                                        map-name)))
   ;; TODO : create player object last (render order purposes)
-  (setf *player-entity* (player-entity *storage* 1)
+  (setf *player-entity* (player-entity 1)
         *deathp* nil
         *restart* nil)
-  (let ((music (ecs:make-entity *storage*)))
-    (add-sound *storage* music :alone :oncep nil)
-    (with-sound () *storage* music
+  (let ((music (ecs:make-entity)))
+    (add-sound music :alone :oncep nil)
+    (with-sound () music
       (setf gain 0.05))))
 
 (cffi:defcallback %main :int ((argc :int) (argv :pointer))

@@ -29,7 +29,6 @@
         (dolist (tile (tiled:tileset-tiles tileset))
           (setf (gethash tile tilemap)
                 (ecs:make-object
-                 *storage*
                  `((:sprite-sheet :bitmap ,(al:create-sub-bitmap
                                             bitmap
                                             (tiled:tile-pixel-x tile)
@@ -51,24 +50,21 @@
                  (x (* +scale+ (tiled:cell-x cell)))
                  (y (* +scale+ (tiled:cell-y cell))))
              (ecs:make-object
-              *storage*
-              `((:sprite-sheet :bitmap ,(sprite-sheet-bitmap-aref *storage*
-                                                                  tile-entity))
+              `((:sprite-sheet :bitmap ,(sprite-sheet-bitmap-aref tile-entity))
                 (:position :x ,x :y ,y)
-                (:size :width ,(size-width-aref *storage* tile-entity)
-                       :height ,(size-height-aref *storage* tile-entity))
+                (:size :width ,(size-width-aref tile-entity)
+                       :height ,(size-height-aref tile-entity))
                 (:tile :obstaclep
-                       ,(tile-obstaclep-aref *storage* tile-entity)))))))
+                       ,(tile-obstaclep-aref tile-entity)))))))
         ((typep layer 'tiled:object-layer)
          (dolist (object (tiled:object-group-objects layer))
            (let ((entity (ecs:make-object
-                          *storage*
                           (with-input-from-string
                               (s (gethash "object" (tiled:properties object)))
                             (read s)))))
-             (make-position *storage* entity
+             (make-position entity
                             :x (* +scale+ (tiled:object-x object))
                             :y (* +scale+ (tiled:object-y object))))))))
     (loop :for tile-entity :of-type ecs:entity
             :being :the :hash-values :of tilemap
-           :do (ecs:delete-entity *storage* tile-entity))))
+           :do (ecs:delete-entity tile-entity))))

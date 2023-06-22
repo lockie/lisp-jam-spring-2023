@@ -12,13 +12,13 @@
 (declaim (inline tile-start))
 (defun tile-start (x y)
   (values
-   (* +scaled-tile-size+ (round x +scaled-tile-size+))
-   (* +scaled-tile-size+ (round y +scaled-tile-size+))))
+   (* +scaled-tile-size+ (the fixnum (round x +scaled-tile-size+)))
+   (* +scaled-tile-size+ (the fixnum (round y +scaled-tile-size+)))))
 
 (ecs:defsystem player-control
   (:components-ro (player position)
    :components-rw (character)
-   :enable (not (or *deathp* (active-ui-entities *storage* 1))))
+   :enable (not (or *deathp* (active-ui-entities 1))))
   (al:with-current-keyboard-state keyboard-state
     (multiple-value-bind (current-tile-x current-tile-y)
         (tile-start position-x position-y)
@@ -40,9 +40,9 @@
 (declaim (ftype (function (single-float single-float) boolean) obstaclep))
 (defun obstaclep (x y)
   (loop :for tile-entity :of-type ecs:entity :in
-           (tile-entities *storage* (multiple-value-call #'tile-index
-                                      (tile-start x y)))
-        :thereis (plusp (tile-obstaclep-aref *storage* tile-entity))))
+           (tile-entities (multiple-value-call #'tile-index
+                            (tile-start x y)))
+        :thereis (plusp (tile-obstaclep-aref tile-entity))))
 
 (declaim (ftype (function (single-float single-float non-negative-fixnum)
                           boolean) collidesp))
@@ -63,8 +63,8 @@
   (if (and (approx-equal position-x character-target-x)
            (approx-equal position-y character-target-y))
       (change-animation
-       *storage* entity :idle
-       :turn-left (plusp (animation-state-left-aref *storage* entity)))
+       entity :idle
+       :turn-left (plusp (animation-state-left-aref entity)))
       (let* ((angle (atan (- character-target-y position-y)
                           (- character-target-x position-x)))
              (dt (coerce dt 'single-float))
@@ -76,9 +76,9 @@
             (setf character-target-x position-x
                   character-target-y position-y)
             (progn
-              (change-animation *storage* entity :move :turn-left (minusp dx))
-              (add-sound *storage* entity (if (= *player-entity* entity)
-                                              :step-cloth1
-                                              :step-lth1))
+              (change-animation entity :move :turn-left (minusp dx))
+              (add-sound entity (if (= *player-entity* entity)
+                                    :step-cloth1
+                                    :step-lth1))
               (setf position-x new-x
                     position-y new-y))))))

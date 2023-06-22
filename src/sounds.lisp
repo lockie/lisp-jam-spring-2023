@@ -44,7 +44,7 @@
    :components-ro (position)
    :with ((player-x player-y)
           :of-type (single-float single-float)
-          := (with-position () *storage* *player-entity*
+          := (with-position () *player-entity*
                (values x y))))
   (setf sound-gain
         (clamp
@@ -58,12 +58,12 @@
             (/ +scale+ +window-width+))
          -1.0 1.0)))
 
-(defun add-sound (storage entity name &key (oncep t) (playingp t) throughp)
-  (let ((sample-entity (sound-entity storage name)))
-    (with-sound-sample (_ source-sample) storage sample-entity
-      (unless (has-sound-p storage entity)
-        (make-sound storage entity))
-      (with-sound () storage entity
+(defun add-sound (entity name &key (oncep t) (playingp t) throughp)
+  (let ((sample-entity (sound-entity name)))
+    (with-sound-sample (_ source-sample) sample-entity
+      (unless (has-sound-p entity)
+        (make-sound entity))
+      (with-sound () entity
         (when (or (zerop playing)
                   (and (zerop play-through)
                        (not (eq source-sample sample))))
@@ -86,8 +86,7 @@
   (if (zerop (logand (al::get-fs-entry-mode file)
                      (cffi:foreign-bitfield-value 'al::file-mode '(:isdir))))
       (let ((filename (al::get-fs-entry-name file)))
-        (ecs:make-object *storage*
-                         `((:sound-sample
+        (ecs:make-object `((:sound-sample
                             :name ,(make-keyword
                                     (string-upcase
                                      (pathname-name filename)))

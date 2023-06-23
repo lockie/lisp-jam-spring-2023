@@ -11,7 +11,8 @@ export VERSION=${GITHUB_REF_NAME:-$(git describe --always --tags --dirty=+ --abb
 
 case $1 in
     linux)
-        sbcl --dynamic-space-size 2048 --disable-debugger --quit --load package/build.lisp
+        clpm bundle install -y
+        clpm bundle exec -- sbcl --dynamic-space-size 2048 --disable-debugger --quit --load package/build.lisp
         linuxdeploy --appimage-extract-and-run --executable=bin/thoughtbound \
                     --custom-apprun=package/AppRun \
                     --icon-file=package/icon.png \
@@ -28,7 +29,8 @@ case $1 in
             echo "Missing mingw-ldd helper binary"
             exit 1
         fi
-        sbcl --dynamic-space-size 2048 --disable-debugger --quit --load package/build.lisp
+        clpm bundle install -y
+        clpm bundle exec -- sbcl --dynamic-space-size 2048 --disable-debugger --quit --load package/build.lisp
         for binary in bin/*; do
             echo -n "${PATH}" | tr ';' '\0' | \
                 xargs -t0 mingw-ldd "$binary" --disable-multiprocessing --dll-lookup-dirs | \

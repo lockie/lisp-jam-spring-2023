@@ -1,5 +1,5 @@
 (defsystem "thoughtbound"
-  :version "0.0.3"
+  :version "0.0.4"
   :author "Andrew Kravchuk"
   :license "MIT"
   :depends-on (#:alexandria

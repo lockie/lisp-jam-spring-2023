@@ -20,7 +20,7 @@ To run manually:
     (thoughtbound:main)
   #+end_src
 
-** System requirements
+** Minimum system requirements
 
 + Windows 7 SP1 or Ubuntu 16.04
 + 2 GB of RAM
@@ -28,13 +28,13 @@ To run manually:
 
 ** Credits
 
-+ [[https://fonts.google.com/specimen/Inconsolata/about][Inconsolata font]]
-+ [[http://tango.freedesktop.org][Tango icons]]
++ [[https://fonts.google.com/specimen/Inconsolata/about][Inconsolata font]], [[https://opensource.org/license/ofl-1-1][OFL]]
++ [[http://tango.freedesktop.org][Tango icons]], [[https://creativecommons.org/publicdomain/zero/1.0][CC0]]
 + [[https://anokolisa.itch.io/dungeon-crawler-pixel-art-asset-pack][Pixel Art Asset Pack by Anokolisa]], [[https://creativecommons.org/publicdomain/zero/1.0][CC0]]
 + [[https://opengameart.org/content/footsteps-leather-cloth-armor][Footsteps Leather, Cloth, Armor by Brandon Morris]], [[https://creativecommons.org/publicdomain/zero/1.0][CC0]]
 + [[https://leohpaz.itch.io/minifantasy-dungeon-sfx-pack][Minifantasy Dungeon Audio Pack by Leonardo Paz]]
 + [[https://mounirtohami.itch.io/pixel-art-gui-elements][Pixel Art GUI Elements by Mounir Tohami]], [[https://creativecommons.org/publicdomain/zero/1.0][CC0]]
-+ [[https://howyoudoing.itch.io/bookxel][Bookxel font by HowYouDoing]]
++ [[https://howyoudoing.itch.io/bookxel][Bookxel font by HowYouDoing]], [[https://opensource.org/license/ofl-1-1][OFL]]
 + [[https://opengameart.org/content/male-gotcha][Male gotcha sound by TaniCorn]], [[https://creativecommons.org/licenses/by/4.0][CC-BY 4.0]]
 + [[https://makotohiramatsu.itch.io/lost][Soundscape and Ambient Music Pack: LOST by Makoto Hiramatsu]], [[https://creativecommons.org/licenses/by/4.0][CC-BY 4.0]]
 

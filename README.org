@@ -1,5 +1,7 @@
 * Thoughtbound
 
+[[https://awkravchuk.itch.io/thoughtbound][itch.io page]]
+
 ** Installation
 
 Just grab the build from [[https://github.com/lockie/lisp-jam-spring-2023/releases][releases section]].
@@ -7,18 +9,18 @@ Just grab the build from [[https://github.com/lockie/lisp-jam-spring-2023/releas
 To run manually:
 + Install SBCL and CLPM
 + In the project directory, run
-  #+begin_src bash
-    clpm bundle install
-    clpm bundle exec sbcl
-  #+end_src
+#+begin_src bash
+  clpm bundle install
+  clpm bundle exec sbcl
+#+end_src
 + In REPL started on previous step, run
-  #+begin_src lisp
-    (require 'asdf)
-    (asdf:load-system 'thoughtbound)
-    (uiop:chdir "Resources")
-    (setf *default-pathname-defaults* (truename "./Resources"))
-    (thoughtbound:main)
-  #+end_src
+#+begin_src lisp
+  (require 'asdf)
+  (asdf:load-system 'thoughtbound)
+  (uiop:chdir "Resources")
+  (setf *default-pathname-defaults* (truename "./Resources"))
+  (thoughtbound:main)
+#+end_src
 
 ** Minimum system requirements
 

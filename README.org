@@ -24,9 +24,9 @@ To run manually:
 
 ** Minimum system requirements
 
-+ Windows 7 SP1 or Ubuntu 16.04
++ 64-bit Windows 7 SP1 or Ubuntu 16.04
 + 2 GB of RAM
-+ 40 Mb of free disk space
++ 30 Mb of free disk space
 
 ** Credits
 

@@ -5,26 +5,18 @@
 Just grab the build from [[https://github.com/lockie/lisp-jam-spring-2023/releases][releases section]].
 
 To run manually:
-+ Install SBCL and Quicklisp
-+ Copy the following libraries to your =local-projects= directory:
- #+begin_src bash
-   cd ~/quicklisp/local-projects
-   # cl-fast-ecs
-   wget https://gitlab.com/lockie/cl-fast-ecs/-/archive/724a/cl-fast-ecs-724a.zip
-   unzip cl-fast-ecs-724a.zip
-   # cl-liballegro
-   git clone https://github.com/resttime/cl-liballegro
-   # cl-tiled
-   git clone https://github.com/Zulu-Inuoe/cl-tiled
- #+end_src
-+ Link this project's folder to =local-projects= as well:
++ Install SBCL and CLPM
++ In the project directory, run
   #+begin_src bash
-    cd lisp-jam-spring-2023
-    ln -s `pwd` ~/quicklisp/local-projects/
+    clpm bundle install
+    clpm bundle exec sbcl
   #+end_src
-+ Run SBCL from =src= subdirectory and start the game:
++ In REPL started on previous step, run
   #+begin_src lisp
-    (ql:quickload :thoughtbound)
+    (require 'asdf)
+    (asdf:load-system 'thoughtbound)
+    (uiop:chdir "Resources")
+    (setf *default-pathname-defaults* (truename "./Resources"))
     (thoughtbound:main)
   #+end_src
 

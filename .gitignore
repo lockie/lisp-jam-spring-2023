@@ -79,3 +79,5 @@ appimage/
 *.exe
 allegro.log
 config.cfg
+.qlot/
+qlfile.lock

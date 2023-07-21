@@ -9,10 +9,15 @@ fi
 
 export VERSION=${GITHUB_REF_NAME:-$(git describe --always --tags --dirty=+ --abbrev=6)}
 
+function do_build () {
+    sbcl --quit --eval "(ql:quickload '(:qlot :qlot/cli))" --eval "(qlot/cli:install)"
+    ln -s "$(pwd)" .qlot/local-projects/
+    sbcl --dynamic-space-size 2048 --disable-debugger --quit --no-userinit --load .qlot/setup.lisp --load package/build.lisp
+}
+
 case $1 in
     linux)
-        clpm bundle install -y
-        clpm bundle exec -- sbcl --dynamic-space-size 2048 --disable-debugger --quit --load package/build.lisp
+        do_build
         linuxdeploy --appimage-extract-and-run --executable=bin/thoughtbound \
                     --custom-apprun=package/AppRun \
                     --icon-file=package/icon.png \
@@ -29,8 +34,7 @@ case $1 in
             echo "Missing mingw-ldd helper binary"
             exit 1
         fi
-        clpm bundle install -y
-        clpm bundle exec -- sbcl --dynamic-space-size 2048 --disable-debugger --quit --load package/build.lisp
+        do_build
         for binary in bin/*; do
             echo -n "${PATH}" | tr ';' '\0' | \
                 xargs -t0 mingw-ldd "$binary" --disable-multiprocessing --dll-lookup-dirs | \

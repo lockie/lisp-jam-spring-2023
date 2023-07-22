@@ -9,16 +9,22 @@
 Just grab the build from [[https://github.com/lockie/lisp-jam-spring-2023/releases][releases section]].
 
 To run manually:
-+ Install SBCL and CLPM
++ Install liballegro
+#+begin_src bash
+  # e.g. on Debian derivatives, including Ubuntu
+  apt-get install liballegro-acodec5-dev liballegro-audio5-dev \
+          liballegro-image5-dev liballegro-dialog5-dev liballegro-ttf5-dev \
+          liballegro-physfs5-dev liballegro-video5-dev libffi-dev
+#+end_src
++ Install [[https://sbcl.org/platform-table.html][SBCL]] and [[https://github.com/fukamachi/qlot][Qlot]]
 + In the project directory, run
 #+begin_src bash
-  clpm bundle install
-  clpm bundle exec sbcl
+  qlot install
+  qlot exec ros -S . run
 #+end_src
 + In REPL started on previous step, run
 #+begin_src lisp
-  (require 'asdf)
-  (asdf:load-system 'thoughtbound)
+  (ql:quickload :thoughtbound)
   (uiop:chdir "Resources")
   (setf *default-pathname-defaults* (truename "./Resources"))
   (thoughtbound:main)

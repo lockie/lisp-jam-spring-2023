@@ -11,8 +11,10 @@ export VERSION=${GITHUB_REF_NAME:-$(git describe --always --tags --dirty=+ --abb
 
 function do_build () {
     sbcl --quit --eval "(ql:quickload '(:qlot :qlot/cli))" --eval "(qlot/cli:install)"
-    ln -s "$(pwd)" .qlot/local-projects/
+    mkdir .qlot/local-projects/thoughtbound
+    cp -r "$(pwd)"/* .qlot/local-projects/thoughtbound # no working ln on windoze
     sbcl --dynamic-space-size 2048 --disable-debugger --quit --no-userinit --load .qlot/setup.lisp --load package/build.lisp
+    mv .qlot/local-projects/thoughtbound/bin .
 }
 
 case $1 in

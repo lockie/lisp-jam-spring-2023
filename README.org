@@ -16,15 +16,15 @@ To run manually:
           liballegro-image5-dev liballegro-dialog5-dev liballegro-ttf5-dev \
           liballegro-physfs5-dev liballegro-video5-dev libffi-dev
 #+end_src
-+ Install [[https://sbcl.org/platform-table.html][SBCL]] and [[https://github.com/fukamachi/qlot][Qlot]]
++ Install [[https://sbcl.org/platform-table.html][SBCL]] and [[https://github.com/ocicl/ocicl][ocicl]]
 + In the project directory, run
 #+begin_src bash
-  qlot install
-  qlot exec ros -S . run
+  ocicl install
+  sbcl
 #+end_src
 + In REPL started on previous step, run
 #+begin_src lisp
-  (ql:quickload :thoughtbound)
+  (asdf:load-system :thoughtbound)
   (uiop:chdir "Resources")
   (setf *default-pathname-defaults* (truename "./Resources"))
   (thoughtbound:main)

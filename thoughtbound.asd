@@ -7,7 +7,8 @@
                #:cl-liballegro
                #:cl-liballegro-nuklear
                #:cl-tiled
-               #:livesupport)
+               #:livesupport
+               #+sbcl #:sb-posix)
   :serial t
   :components ((:module "src"
                 :components

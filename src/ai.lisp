@@ -28,15 +28,15 @@
       (setf *deathp* t)
       (change-animation
        entity :idle
-       :turn-left (plusp (animation-state-left-aref entity)))
-      (let ((old-width (size-width-aref *player-entity*)))
+       :turn-left (plusp (animation-state-left entity)))
+      (let ((old-width (size-width *player-entity*)))
         (change-animation
          *player-entity* :death
          :turn-left (plusp
-                     (animation-state-left-aref *player-entity*))
+                     (animation-state-left *player-entity*))
          :cycle nil)
-        (let ((new-width (size-width-aref *player-entity*)))
+        (let ((new-width (size-width *player-entity*)))
           ;; compensate for different sprite sizes
-          (decf (position-x-aref *player-entity*)
+          (decf (position-x *player-entity*)
                 (- new-width old-width))))
       (add-sound *player-entity* :death))))

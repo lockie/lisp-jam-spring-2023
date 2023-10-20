@@ -2,7 +2,7 @@
 
 
 (ecs:defcomponent player
-  (player 1 :type bit :index player :unique t))
+  (player 1 :type bit :index player-entity :unique t))
 
 (ecs:defcomponent character
   (speed 0.0 :type single-float)
@@ -42,7 +42,7 @@
   (loop :for tile-entity :of-type ecs:entity :in
            (tile-entities (multiple-value-call #'tile-index
                             (tile-start x y)))
-        :thereis (plusp (tile-obstaclep-aref tile-entity))))
+        :thereis (plusp (tile-obstaclep tile-entity))))
 
 (declaim (ftype (function (single-float single-float non-negative-fixnum)
                           boolean) collidesp))
@@ -64,7 +64,7 @@
            (approx-equal position-y character-target-y))
       (change-animation
        entity :idle
-       :turn-left (plusp (animation-state-left-aref entity)))
+       :turn-left (plusp (animation-state-left entity)))
       (let* ((angle (atan (- character-target-y position-y)
                           (- character-target-x position-x)))
              (dt (coerce dt 'single-float))

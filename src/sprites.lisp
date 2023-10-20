@@ -17,7 +17,7 @@
   (y 0.0 :type single-float
          :documentation "pre-scaled y position aka screen pixel coordinate")
   (tile-index (tile-index x y)
-              :type fixnum :index tile
+              :type fixnum :index tile-entities
               :documentation "Tile index, for fast map tile lookups."))
 
 (ecs:defcomponent sprite-sheet
@@ -30,7 +30,7 @@
   "There is a separate entity for every animation of every sprite, having this
 component (and also sprite-sheet and size). This separate entity is very much
 like a prefab."
-  (name :|| :type keyword :index animation :unique t :documentation
+  (name :|| :type keyword :index animation-entity :unique t :documentation
         "player-idle, skeleton-move etc")
   (x 0.0 :type single-float :documentation "start of animation x")
   (y 0.0 :type single-float :documentation "start of animation y")

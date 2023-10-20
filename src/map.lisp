@@ -50,12 +50,12 @@
                  (x (* +scale+ (tiled:cell-x cell)))
                  (y (* +scale+ (tiled:cell-y cell))))
              (ecs:make-object
-              `((:sprite-sheet :bitmap ,(sprite-sheet-bitmap-aref tile-entity))
+              `((:sprite-sheet :bitmap ,(sprite-sheet-bitmap tile-entity))
                 (:position :x ,x :y ,y)
-                (:size :width ,(size-width-aref tile-entity)
-                       :height ,(size-height-aref tile-entity))
+                (:size :width ,(size-width tile-entity)
+                       :height ,(size-height tile-entity))
                 (:tile :obstaclep
-                       ,(tile-obstaclep-aref tile-entity)))))))
+                       ,(tile-obstaclep tile-entity)))))))
         ((typep layer 'tiled:object-layer)
          (dolist (object (tiled:object-group-objects layer))
            (let ((entity (ecs:make-object

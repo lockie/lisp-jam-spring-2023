@@ -2,7 +2,7 @@
 
 
 (ecs:defcomponent ui
-  (active 0 :type bit :index active-ui)
+  (active 0 :type bit :index active-ui-entities)
   (text "" :type string :documentation "Text, 4 rows by 94 chars max")
   (r 0 :type (unsigned-byte 8))
   (g 0 :type (unsigned-byte 8))

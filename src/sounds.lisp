@@ -2,7 +2,7 @@
 
 
 (ecs:defcomponent sound-sample
-  (name :|| :type keyword :index sound :unique t)
+  (name :|| :type keyword :index sound-entity :unique t)
   (sample (cffi:null-pointer) :type cffi:foreign-pointer))
 
 (ecs:defcomponent sound

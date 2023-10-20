@@ -10,7 +10,7 @@ fi
 export VERSION=${GITHUB_REF_NAME:-$(git describe --always --tags --dirty=+ --abbrev=6)}
 
 function do_build () {
-    ocicl install
+    ln -s "$(pwd)" "$HOME/quicklisp/local-projects/"
     sbcl --dynamic-space-size 2048 --disable-debugger --quit --load package/build.lisp
 }
 

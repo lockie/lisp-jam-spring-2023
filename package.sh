@@ -33,12 +33,7 @@ case $1 in
             exit 1
         fi
         do_build
-        for binary in bin/*; do
-            echo -n "${PATH}" | tr ';' '\0' | \
-                xargs -t0 mingw-ldd "$binary" --disable-multiprocessing --dll-lookup-dirs | \
-                { grep -v -e 'not found' -e 'system32' || test $? = 1; } | \
-                awk -F '=> ' '{ print $2 }' | xargs -I deps cp deps bin/
-        done
+        ntldd -R bin/* | grep ucrt64 | awk -F '=> ' '{ print $2 }' | awk '{ print $1 }' | sed 's/\\/\\\\/g' | xargs -I deps cp deps bin
         makensis package/installer.nsi
         ;;
 

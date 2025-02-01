@@ -34,6 +34,8 @@ case $1 in
         fi
         do_build
         ntldd -R bin/* | grep ucrt64 | awk -F '=> ' '{ print $2 }' | awk '{ print $1 }' | sed 's/\\/\\\\/g' | xargs -I deps cp deps bin
+        magick package/icon.png -define icon:auto-resize=16,32,48,64,256 ICO:- > "$TEMP/icon.ico"
+        magick package/icon.png -resize 150x57 -extent 150x57 -gravity center -background white -alpha remove -alpha off BMP2:- > "$TEMP/icon.bmp"
         makensis package/installer.nsi
         ;;
 
